@@ -1,0 +1,22 @@
+{
+  "name": "OSAT-VideoCompositor",
+  "version": "0.1.0",
+  "summary": "A short description of OSAT-VideoCompositor.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/hdutt/OSAT-VideoCompositor",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hdutt": "hdutt@cisco.com"
+  },
+  "source": {
+    "git": "https://github.com/hdutt/OSAT-VideoCompositor.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "OSAT-VideoCompositor/Classes/**/*"
+}

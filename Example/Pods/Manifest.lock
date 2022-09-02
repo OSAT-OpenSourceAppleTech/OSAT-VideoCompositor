@@ -1,0 +1,16 @@
+PODS:
+  - OSAT-VideoCompositor (0.1.0)
+
+DEPENDENCIES:
+  - OSAT-VideoCompositor (from `../`)
+
+EXTERNAL SOURCES:
+  OSAT-VideoCompositor:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OSAT-VideoCompositor: 7c046f0d5f1dda98a47a0d73bdc7462016be227b
+
+PODFILE CHECKSUM: 4f3e497347bac3d305f3acb5e90f11a21e243be3
+
+COCOAPODS: 1.11.3

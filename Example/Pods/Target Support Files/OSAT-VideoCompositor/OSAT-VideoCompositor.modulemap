@@ -1,0 +1,6 @@
+framework module OSAT_VideoCompositor {
+  umbrella header "OSAT-VideoCompositor-umbrella.h"
+
+  export *
+  module * { export * }
+}
