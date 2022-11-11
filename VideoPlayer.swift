@@ -77,7 +77,10 @@ open class VideoPlayer: UIView {
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.frame = frame
-        layer.addSublayer(playerLayer!)
+        if let playerLayer = playerLayer {
+            layer.addSublayer(playerLayer)
+        }
+        
     }
     
     private func addSubviews() {

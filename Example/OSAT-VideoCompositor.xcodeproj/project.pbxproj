@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		0B50F16F19486D32D6211192 /* Pods-OSAT-VideoCompositor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSAT-VideoCompositor_Tests.debug.xcconfig"; path = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		13B3B56A3983C5FB12EC0835 /* OSAT-VideoCompositor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "OSAT-VideoCompositor.podspec"; path = "../OSAT-VideoCompositor.podspec"; sourceTree = "<group>"; };
+		13B3B56A3983C5FB12EC0835 /* OSAT-VideoCompositor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "OSAT-VideoCompositor.podspec"; path = "../OSAT-VideoCompositor.podspec"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* OSAT-VideoCompositor_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSAT-VideoCompositor_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,8 +47,8 @@
 		98C18AA0D7D9B8CAE531EADA /* Pods_OSAT_VideoCompositor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSAT_VideoCompositor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB46A411940C8C9F5CA2983A /* Pods-OSAT-VideoCompositor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSAT-VideoCompositor_Example.debug.xcconfig"; path = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B0896B476C4F194D82A4048C /* Pods_OSAT_VideoCompositor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSAT_VideoCompositor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C27AE5449CC61C7E1D526B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F9E4906D291544C400CB2598 /* OSAT-VideoCompositor_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OSAT-VideoCompositor_Example.entitlements"; sourceTree = "<group>"; };
+		F9E4906E291544C500CB2598 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		F9E490702915486100CB2598 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = videoplayback.mp4; path = ../../../../Downloads/videoplayback.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A5504C9043983681BB2997 /* Pods_OSAT_VideoCompositor_Example.framework in Frameworks */,
+				F9E4906F291544C500CB2598 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +76,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				F9E4906D291544C400CB2598 /* OSAT-VideoCompositor_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for OSAT-VideoCompositor */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -146,6 +148,7 @@
 		7CD1E9BFB122AD086A2A7DDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9E4906E291544C500CB2598 /* NetworkExtension.framework */,
 				B0896B476C4F194D82A4048C /* Pods_OSAT_VideoCompositor_Example.framework */,
 				98C18AA0D7D9B8CAE531EADA /* Pods_OSAT_VideoCompositor_Tests.framework */,
 			);

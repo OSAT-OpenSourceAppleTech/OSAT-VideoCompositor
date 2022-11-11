@@ -36,10 +36,5 @@ class ViewController: UIViewController {
                 self.videoEditor?.transitionView(to: size)
             }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }
 
