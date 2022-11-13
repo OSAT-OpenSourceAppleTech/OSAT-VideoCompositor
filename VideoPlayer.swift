@@ -20,11 +20,7 @@ open class VideoPlayer: UIView {
         return btn
     }()
     
-    public convenience init() {
-        self.init(frame: .zero)
-    }
-    
-    public override init(frame: CGRect) {
+    public override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setVideoPlayer()
     }

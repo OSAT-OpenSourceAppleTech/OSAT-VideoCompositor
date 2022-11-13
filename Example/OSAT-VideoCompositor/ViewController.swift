@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = Bundle.main.url(forResource: "videoplayback", withExtension: "mp4")!
+        let url = Bundle.main.url(forResource: "Demo", withExtension: "mp4")!
         videoEditor = VideoPlayer(frame: .zero, url: url)
         videoEditor!.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(videoEditor!)
