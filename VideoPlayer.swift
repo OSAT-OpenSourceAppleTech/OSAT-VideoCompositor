@@ -13,10 +13,17 @@ open class VideoPlayer: UIView {
     private var playerLayer: AVPlayerLayer?
     private var url: URL?
     
+    private struct Constants {
+        static let playButton = "play"
+        static let pauseButton = "pause"
+        static let iconSize: CGFloat = 40
+    }
+    
     private lazy var playbutton: UIButton = {
         let btn = UIButton(frame: .zero)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(handlePlayButtonAction(_:)), for: .touchUpInside)
+        btn.accessibilityIdentifier = "playButton"
         return btn
     }()
     
@@ -47,10 +54,12 @@ open class VideoPlayer: UIView {
     
     open func play() {
         player?.play()
+        playbutton.isSelected = false
     }
     
     open func pause() {
         player?.pause()
+        playbutton.isSelected = true
     }
     
     open func transitionView(to size: CGSize) {
@@ -61,6 +70,15 @@ open class VideoPlayer: UIView {
     open func set(url: URL) {
         self.url = url
         player = AVPlayer(url: url)
+    }
+    
+    // For test
+    open func getPlayer() -> AVPlayer? {
+        return player
+    }
+    
+    open func getPlayButton() -> UIButton {
+        return playbutton
     }
     
     // MARK: - Private Methods
@@ -76,7 +94,6 @@ open class VideoPlayer: UIView {
         if let playerLayer = playerLayer {
             layer.addSublayer(playerLayer)
         }
-        
     }
     
     private func addSubviews() {
@@ -84,22 +101,21 @@ open class VideoPlayer: UIView {
     }
     
     private func setButtonProperties() {
-        playbutton.setImage(UIImage(systemName: "play", withConfiguration: UIImage.SymbolConfiguration(pointSize: CGFloat(40))), for: .selected)
-        playbutton.setImage(UIImage(systemName: "pause", withConfiguration: UIImage.SymbolConfiguration(pointSize: CGFloat(40))), for: .normal)
+        playbutton.setImage(UIImage(systemName: Constants.playButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .selected)
+        playbutton.setImage(UIImage(systemName: Constants.pauseButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .normal)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             playbutton.centerXAnchor.constraint(equalTo: centerXAnchor),
             playbutton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            playbutton.heightAnchor.constraint(equalToConstant: 40),
-            playbutton.widthAnchor.constraint(equalToConstant: 40)
+            playbutton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
+            playbutton.widthAnchor.constraint(equalToConstant: Constants.iconSize)
         ])
     }
     
     @objc private func handlePlayButtonAction(_ sender: Any) {
         playbutton.isSelected ? play() : pause()
-        playbutton.isSelected.toggle()
     }
 }
 
