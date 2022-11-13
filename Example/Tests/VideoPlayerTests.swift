@@ -10,11 +10,6 @@ class VideoPlayerTests: XCTestCase {
         videoPlayer = VideoPlayer(frame: .zero, url: url)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testVideoPlayerPlayAndPauseAction() throws {
         let player = try XCTUnwrap(videoPlayer.getPlayer())
         let playButton = videoPlayer.getPlayButton()
