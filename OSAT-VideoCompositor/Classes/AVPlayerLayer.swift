@@ -17,12 +17,21 @@ public protocol AVPlayerProtocol: AnyObject {
 public typealias AVPlayerCustomView = UIView & AVPlayerProtocol
 
 open class AVPlayerView: AVPlayerCustomView {
+    private struct Constants {
+        static let notificationRateDidChange = "AVPlayerRateDidChangeNotification"
+    }
     private var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
     private var url: URL?
     private var asset: AVAsset?
     private var avPlayerItem: AVPlayerItem?
     
+    // MARK: - Public apis for testing
+    public var isVideoPlaying = false
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(Constants.notificationRateDidChange), object: nil)
+    }
     public override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setVideoPlayer()
@@ -33,6 +42,7 @@ open class AVPlayerView: AVPlayerCustomView {
         super.init(frame: frame)
         
         setVideoPlayer()
+        registerForNotification()
     }
     
     public required init?(coder: NSCoder) {
@@ -75,7 +85,12 @@ open class AVPlayerView: AVPlayerCustomView {
         guard let asset = asset else { return }
 
         avPlayerItem = AVPlayerItem(asset: asset)
-        player = AVPlayer(playerItem: avPlayerItem)
+        if player == nil {
+            player = AVPlayer(playerItem: avPlayerItem)
+        } else {
+            player?.replaceCurrentItem(with: avPlayerItem)
+        }
+        
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer?.frame = frame
@@ -83,5 +98,15 @@ open class AVPlayerView: AVPlayerCustomView {
         if let playerLayer = playerLayer {
             layer.addSublayer(playerLayer)
         }
+    }
+    
+    private func registerForNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveNotification(notification:)), name: Notification.Name(Constants.notificationRateDidChange), object: nil)
+    }
+    
+    @objc private func didReceiveNotification(notification: Notification) {
+        guard notification.name.rawValue == Constants.notificationRateDidChange else { return }
+        guard let rate = (notification.object as? AVPlayer)?.rate else { return }
+        isVideoPlaying = rate == .zero ? false : true
     }
 }

@@ -19,5 +19,21 @@ class AVPlayerTests: XCTestCase {
         XCTAssertNotNil(player.currentItem)
         
         videoPlayer.play()
+        XCTAssertTrue(playerLayer.isVideoPlaying)
+        videoPlayer.pause()
+        XCTAssertFalse(playerLayer.isVideoPlaying)
+    }
+    
+    func testMemoryLeak() {
+        var customPlayerLayer: AVPlayerView? = AVPlayerView(frame: .zero, url: url)
+        customPlayerLayer?.play()
+        
+        // this holds weak reference and doesn't increase ARC count
+        weak var customSecondLayer = customPlayerLayer
+        
+        // making the instance nil
+        customPlayerLayer = nil
+        
+        XCTAssertNil(customSecondLayer)
     }
 }
