@@ -87,16 +87,14 @@ open class AVPlayerView: AVPlayerCustomView {
         avPlayerItem = AVPlayerItem(asset: asset)
         if player == nil {
             player = AVPlayer(playerItem: avPlayerItem)
+            playerLayer = AVPlayerLayer(player: player)
+            playerLayer?.frame = frame
+            
+            if let playerLayer = playerLayer {
+                layer.addSublayer(playerLayer)
+            }
         } else {
             player?.replaceCurrentItem(with: avPlayerItem)
-        }
-        
-        
-        playerLayer = AVPlayerLayer(player: player)
-        playerLayer?.frame = frame
-        
-        if let playerLayer = playerLayer {
-            layer.addSublayer(playerLayer)
         }
     }
     
