@@ -20,11 +20,11 @@ open class AVPlayerView: AVPlayerCustomView {
     private struct Constants {
         static let notificationRateDidChange = "AVPlayerRateDidChangeNotification"
     }
-    private var player: AVPlayer?
+    private(set) var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
     private var url: URL?
     private var asset: AVAsset?
-    private var avPlayerItem: AVPlayerItem?
+    private(set) var avPlayerItem: AVPlayerItem?
     
     // MARK: - Public apis for testing
     public var isVideoPlaying = false

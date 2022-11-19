@@ -36,4 +36,17 @@ class AVPlayerTests: XCTestCase {
         
         XCTAssertNil(customSecondLayer)
     }
+    
+    func testReplaceItemTest() throws {
+        let currentItem = try XCTUnwrap(playerLayer.avPlayerItem)
+        let player = try XCTUnwrap(playerLayer.player)
+        
+        videoPlayer.play()
+        videoPlayer.set(url: URL(string: "https://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")!)
+        let newItem = try XCTUnwrap(playerLayer.avPlayerItem)
+        let newPlayer = try XCTUnwrap(playerLayer.player)
+        
+        XCTAssertNotIdentical(currentItem, newItem)
+        XCTAssertIdentical(player, newPlayer)
+    }
 }
