@@ -28,6 +28,9 @@ OSAT-VideoCompositor is an open source project which allow iOS app developers to
   s.ios.deployment_target = '15.0'
 
   s.source_files = 'OSAT-VideoCompositor/Classes/**/*'
+  s.test_spec 'UnitTests' do |test_spec|
+  test_spec.source_files = 'OSAT-VideoCompositor/UnitTests/**/*'
+  end
   
   # s.resource_bundles = {
   #   'OSAT-VideoCompositor' => ['OSAT-VideoCompositor/Assets/*.png']

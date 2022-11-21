@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'OSAT-VideoCompositor_Example' do
-  pod 'OSAT-VideoCompositor', :path => '../'
+  pod 'OSAT-VideoCompositor', :path => '../', :testspecs => ['UnitTests']
 
   target 'OSAT-VideoCompositor_Tests' do
     inherit! :search_paths
