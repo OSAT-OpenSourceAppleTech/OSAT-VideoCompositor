@@ -33,7 +33,15 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;Accessing Camera&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Accessing photo library</string>
 </dict>
 </plist>

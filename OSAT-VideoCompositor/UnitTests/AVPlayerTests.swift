@@ -1,5 +1,6 @@
 @testable import OSAT_VideoCompositor
 import XCTest
+import AVFoundation
 
 class AVPlayerTests: XCTestCase {
     var videoPlayer: MoviePlayer!
@@ -48,5 +49,31 @@ class AVPlayerTests: XCTestCase {
         
         XCTAssertNotIdentical(currentItem, newItem)
         XCTAssertIdentical(player, newPlayer)
+    }
+    
+    func testSeekApi() throws {
+        let fakeDelegate = FakeAVPlayerCustomViewDelegate()
+        playerLayer.delegate = fakeDelegate
+        playerLayer.registerTimeIntervalForObservingPlayer(1)
+        playerLayer.play()
+        playerLayer.seek(to: CMTime(seconds: 1, preferredTimescale: 1000))
+        XCTAssertTrue(fakeDelegate.isSuccessFul)
+    }
+    
+    func testDurationOfVideo() async throws {
+        let duration = try await playerLayer.getDuration()
+        XCTAssertNotNil(duration)
+    }
+}
+
+class FakeAVPlayerCustomViewDelegate: AVPlayerCustomViewDelegate {
+    var isSuccessFul = false
+    func avPlayerCustomView(_ avPlayerView: OSAT_VideoCompositor.AVPlayerCustomView, didSeek isSuccess: Bool) {
+        isSuccessFul = isSuccess
+    }
+    
+    var didReceiveTime = false
+    func avPlayerCustomView(_ avPlayerView: OSAT_VideoCompositor.AVPlayerCustomView, didReceivePlayBack time: CMTime) {
+        didReceiveTime = true
     }
 }
