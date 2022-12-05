@@ -149,7 +149,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func handleSliderAction(_ sender: UISlider) {
-        //videoPlayerLayer?.seek(to: CMTime(seconds: Double(sender.value), preferredTimescale: 1000))
+        videoPlayerLayer?.seek(to: CMTime(seconds: Double(sender.value), preferredTimescale: 1000))
     }
     
     private func play() {
