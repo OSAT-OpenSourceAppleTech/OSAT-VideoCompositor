@@ -8,38 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		15BC36070DFE71A005FC7FC739591936 /* Pods-OSAT-VideoCompositor_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 682E78DB3C8B362EE7A78344A0A1B5FD /* Pods-OSAT-VideoCompositor_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E7F69C609F90EDC60394554606DA200 /* OSAT-VideoCompositor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1432B5C08DC1E3715BA3C238EB6920 /* OSAT-VideoCompositor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17CD34BAAFF9615E2000F65ED382BDB1 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7FB5737A3BC9437A2CF20E433B850A /* NSAttributedString+Extensions.swift */; };
+		2A41DBD6635486F6EBDFFE7E76BF3349 /* MoviePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F0179A11C7E0B420FCF1FBD60D8BE /* MoviePlayer.swift */; };
 		48B2F84550A3A94353351A30C26391F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		5E16883BB7AA51F008725FCEA4A5C28A /* AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21CC19CD5113F07078DC672E0C746C /* AVPlayerLayer.swift */; };
 		78F511B455CEB472825DF2734E424A9A /* Pods-OSAT-VideoCompositor_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92784D4BEC9D49B55DA1372B91557592 /* Pods-OSAT-VideoCompositor_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83FEA259E5E276FFE7B11F9FBFB2B7FF /* AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC53CB2B6E5A52D6A2FC32F465FAD7A /* AVPlayerLayer.swift */; };
-		8A503A4653ABB94BC4FAD7FDB1133F61 /* OSAT-VideoCompositor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75262BA3489D1D68ED67B32A69A8D377 /* OSAT-VideoCompositor-dummy.m */; };
+		8C77EB1F66163B7CFF228FB8442B1303 /* OSAT-VideoCompositor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBC8C05854D631A795FE6ACE270E89D9 /* OSAT-VideoCompositor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D9618A2D7A60FD04D4DDBE61FEECA66 /* OSAT-VideoCompositor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C67D3F9A49BC99EAE35CFA36E03E2AB1 /* OSAT-VideoCompositor-dummy.m */; };
 		9548187F56DF859F2BBE2F8285A030BA /* Pods-OSAT-VideoCompositor_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C72A232F825282EC5C7E2A18B57AD1 /* Pods-OSAT-VideoCompositor_Tests-dummy.m */; };
 		A55B9B27597E963F86296A25A6124C49 /* Pods-OSAT-VideoCompositor_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE84A806BEC2D8F43DD3C0842A792DC /* Pods-OSAT-VideoCompositor_Example-dummy.m */; };
-		C36F3532A495AC83B1ED8743943F52F2 /* MoviePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78383DC85E8B8EE736448C21273ACE /* MoviePlayer.swift */; };
-		C930CBEE2DE9F94ED7D8D824FD684B47 /* AVPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94A34C1E25AF97D0CA362A73AECDB8 /* AVPlayerTests.swift */; };
+		C930CBEE2DE9F94ED7D8D824FD684B47 /* AVPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC106274B20297DD13E1F925CD8161BA /* AVPlayerTests.swift */; };
 		EA7E51AEA0F9FFD22AA5009B9502389A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F0FADDB7FC2DAE627491F748D7386C70 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B76EBF07815EFEA73F04436CE992CB /* VideoEditor.swift */; };
 		F87EB61206532C8E3853AD82FD9092C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		F96A6FA0294DC16C005B0365 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A6F9F294DC16C005B0365 /* VideoEditor.swift */; };
-		F96A6FA3294DC288005B0365 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A6FA2294DC288005B0365 /* NSAttributedString+Extensions.swift */; };
-		FA6F4B4B85352F753A8E3D451552E6EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		FE3A64D5B97EE736E0315ABFD2EBA600 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0413697C372D1E0DC7C8E4C2A069C27F /* PBXContainerItemProxy */ = {
+		6FB71408D2C50CF81838A96F6FB851B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AF8D2EF8E458DE95F75F0C055DC63C5F;
 			remoteInfo = "OSAT-VideoCompositor";
 		};
-		A9AC906193DA6951C1BBC664B6AACDC0 /* PBXContainerItemProxy */ = {
+		9D527511C0A18CB0F0946EB27FF040D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AF8D2EF8E458DE95F75F0C055DC63C5F;
 			remoteInfo = "OSAT-VideoCompositor";
 		};
-		F138853AAF3C95E6C626BC1C6F2B8893 /* PBXContainerItemProxy */ = {
+		B050406A7587D65B0F17C0B28183428A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -49,46 +49,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AC53CB2B6E5A52D6A2FC32F465FAD7A /* AVPlayerLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AVPlayerLayer.swift; path = "OSAT-VideoCompositor/Classes/AVPlayerLayer.swift"; sourceTree = "<group>"; };
-		0ED200FF6B4786A048860753926AA70B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		116718885A6129DA9A8626FD4C37F1FF /* OSAT-VideoCompositor-Unit-UnitTests */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "OSAT-VideoCompositor-Unit-UnitTests"; path = "OSAT-VideoCompositor-Unit-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12751B86A1EA81170553D32DB1464930 /* Pods-OSAT-VideoCompositor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OSAT-VideoCompositor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1CE84A806BEC2D8F43DD3C0842A792DC /* Pods-OSAT-VideoCompositor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OSAT-VideoCompositor_Example-dummy.m"; sourceTree = "<group>"; };
 		258D4F9B6F3CEA19321EC3B014DC3FC7 /* Pods-OSAT-VideoCompositor_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OSAT-VideoCompositor_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		261FC35D6BBFA9259B1EF1AF58DDBB18 /* OSAT-VideoCompositor.unit-unittests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.unit-unittests.release.xcconfig"; sourceTree = "<group>"; };
 		3250BFF619E8F8DECF6DC40213603DC0 /* Pods-OSAT-VideoCompositor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-OSAT-VideoCompositor_Example.modulemap"; sourceTree = "<group>"; };
-		3C78383DC85E8B8EE736448C21273ACE /* MoviePlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MoviePlayer.swift; path = "OSAT-VideoCompositor/Classes/MoviePlayer.swift"; sourceTree = "<group>"; };
+		3D82E65D1009DBA20B4B077349B3A285 /* OSAT-VideoCompositor.unit-unittests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.unit-unittests.debug.xcconfig"; sourceTree = "<group>"; };
+		538C208051F053D8FFE5C8D140A052E3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		5580AFEB1DA31F887615168ED6AE92F2 /* Pods-OSAT-VideoCompositor_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-OSAT-VideoCompositor_Example"; path = Pods_OSAT_VideoCompositor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C72A232F825282EC5C7E2A18B57AD1 /* Pods-OSAT-VideoCompositor_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OSAT-VideoCompositor_Tests-dummy.m"; sourceTree = "<group>"; };
 		57F9597B2A065EBACF7EA9F098331AB5 /* Pods-OSAT-VideoCompositor_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OSAT-VideoCompositor_Example-Info.plist"; sourceTree = "<group>"; };
-		5B94A34C1E25AF97D0CA362A73AECDB8 /* AVPlayerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AVPlayerTests.swift; path = "OSAT-VideoCompositor/UnitTests/AVPlayerTests.swift"; sourceTree = "<group>"; };
 		5D335235AAB213BFD4FA590103EA5D86 /* OSAT-VideoCompositor */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "OSAT-VideoCompositor"; path = OSAT_VideoCompositor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E7D0ABFEEE95CCE89D15895CB9BA995 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		67C562054BBCB69DEA6D982939E4E3DE /* OSAT-VideoCompositor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "OSAT-VideoCompositor.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		682E78DB3C8B362EE7A78344A0A1B5FD /* Pods-OSAT-VideoCompositor_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OSAT-VideoCompositor_Tests-umbrella.h"; sourceTree = "<group>"; };
 		688E3BE724AB79A9EEB82045BF09041D /* Pods-OSAT-VideoCompositor_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OSAT-VideoCompositor_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6AD9CF818A26F89DF1FD499FBD654F07 /* OSAT-VideoCompositor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.release.xcconfig"; sourceTree = "<group>"; };
-		6C6EAE821D5EA84B95E0CF5A34F43BE4 /* OSAT-VideoCompositor.unit-unittests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.unit-unittests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E3C8029BD703E8E3236807BF71C4DD2 /* OSAT-VideoCompositor-Unit-UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OSAT-VideoCompositor-Unit-UnitTests-Info.plist"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		75262BA3489D1D68ED67B32A69A8D377 /* OSAT-VideoCompositor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OSAT-VideoCompositor-dummy.m"; sourceTree = "<group>"; };
+		7B4476FBECB2C1F57F04AE8B09FDF8A1 /* OSAT-VideoCompositor-Unit-UnitTests-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSAT-VideoCompositor-Unit-UnitTests-prefix.pch"; sourceTree = "<group>"; };
 		889A2587B5BCE0A64076218D084CFF05 /* Pods-OSAT-VideoCompositor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OSAT-VideoCompositor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		90B76EBF07815EFEA73F04436CE992CB /* VideoEditor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoEditor.swift; path = "OSAT-VideoCompositor/Classes/VideoEditor.swift"; sourceTree = "<group>"; };
 		92784D4BEC9D49B55DA1372B91557592 /* Pods-OSAT-VideoCompositor_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OSAT-VideoCompositor_Example-umbrella.h"; sourceTree = "<group>"; };
 		93F97110D6A840F5BACB4330985ED378 /* Pods-OSAT-VideoCompositor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-OSAT-VideoCompositor_Tests.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A473406BB1390C2D8E417A7E0B199F40 /* OSAT-VideoCompositor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.debug.xcconfig"; sourceTree = "<group>"; };
-		AA1432B5C08DC1E3715BA3C238EB6920 /* OSAT-VideoCompositor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSAT-VideoCompositor-umbrella.h"; sourceTree = "<group>"; };
-		AF481DF86437207AD5DFD82490D8B1D6 /* OSAT-VideoCompositor.unit-unittests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.unit-unittests.release.xcconfig"; sourceTree = "<group>"; };
+		9C4226A900032A4389392CB2755DAAF5 /* OSAT-VideoCompositor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BA21CC19CD5113F07078DC672E0C746C /* AVPlayerLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AVPlayerLayer.swift; path = "OSAT-VideoCompositor/Classes/AVPlayerLayer.swift"; sourceTree = "<group>"; };
+		BA7FB5737A3BC9437A2CF20E433B850A /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extensions.swift"; path = "OSAT-VideoCompositor/Classes/NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		BBE47870473E9455BC95FE2AE1A67C0E /* OSAT-VideoCompositor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSAT-VideoCompositor-prefix.pch"; sourceTree = "<group>"; };
 		BC420192BE3FA7F6CA25EEA551CEB1D8 /* Pods-OSAT-VideoCompositor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OSAT-VideoCompositor_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D714925D7FBF102D8243F8A8709EFCC9 /* OSAT-VideoCompositor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = "OSAT-VideoCompositor.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BFD9818873D9E6023D90E231BA4A4D9F /* OSAT-VideoCompositor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "OSAT-VideoCompositor.modulemap"; sourceTree = "<group>"; };
+		C1EDC52827421BF21B0B1BBAB2524053 /* OSAT-VideoCompositor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.release.xcconfig"; sourceTree = "<group>"; };
+		C67D3F9A49BC99EAE35CFA36E03E2AB1 /* OSAT-VideoCompositor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OSAT-VideoCompositor-dummy.m"; sourceTree = "<group>"; };
+		CC106274B20297DD13E1F925CD8161BA /* AVPlayerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AVPlayerTests.swift; path = "OSAT-VideoCompositor/UnitTests/AVPlayerTests.swift"; sourceTree = "<group>"; };
+		D66F0179A11C7E0B420FCF1FBD60D8BE /* MoviePlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MoviePlayer.swift; path = "OSAT-VideoCompositor/Classes/MoviePlayer.swift"; sourceTree = "<group>"; };
 		D83E762ACCD5E05DAAB00847242528E6 /* Pods-OSAT-VideoCompositor_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-OSAT-VideoCompositor_Tests"; path = Pods_OSAT_VideoCompositor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC8C05854D631A795FE6ACE270E89D9 /* OSAT-VideoCompositor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSAT-VideoCompositor-umbrella.h"; sourceTree = "<group>"; };
+		EBE515A43CD6535C70B328E50B1229C3 /* OSAT-VideoCompositor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OSAT-VideoCompositor-Info.plist"; sourceTree = "<group>"; };
 		F24CCCAE2B3B41586E976A0E1CBF83DB /* Pods-OSAT-VideoCompositor_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OSAT-VideoCompositor_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F96A6F9F294DC16C005B0365 /* VideoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditor.swift; sourceTree = "<group>"; };
-		F96A6FA2294DC288005B0365 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		F32AA96E4870FCF5404981ACD59FEF4A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		FB45A2719E770BC7E8CEE143D6CDEB84 /* Pods-OSAT-VideoCompositor_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OSAT-VideoCompositor_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FD08AC7171E7E74CFE47F37A7217A9BA /* Pods-OSAT-VideoCompositor_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OSAT-VideoCompositor_Example-frameworks.sh"; sourceTree = "<group>"; };
 		FE2282FE64501615A14958313919D7D9 /* Pods-OSAT-VideoCompositor_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OSAT-VideoCompositor_Tests-Info.plist"; sourceTree = "<group>"; };
 		FEAB06D86DE4EAE7E1510329EE0FC3AF /* Pods-OSAT-VideoCompositor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OSAT-VideoCompositor_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		FF72F80D1768F1F0A66BB3211DD6D4C4 /* OSAT-VideoCompositor-Unit-UnitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "OSAT-VideoCompositor-Unit-UnitTests-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		12D136DF221701B4A0C8C830BE8435DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE3A64D5B97EE736E0315ABFD2EBA600 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1325E85122B7D56DBD10767734B61EDA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,14 +119,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		47DC87FDA33E27EE65EF10D79CC87E55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA6F4B4B85352F753A8E3D451552E6EC /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B59791E46C5E3F38F19321535DE11B2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		149DE43B947F50A69C07ECCB9AD713D4 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC106274B20297DD13E1F925CD8161BA /* AVPlayerTests.swift */,
+			);
+			name = UnitTests;
+			sourceTree = "<group>";
+		};
 		181A099C09B361205D7E73D451C04F98 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +147,57 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		231997DA9D7AB331706D8F553D5EC2CD /* OSAT-VideoCompositor */ = {
+			isa = PBXGroup;
+			children = (
+				BA21CC19CD5113F07078DC672E0C746C /* AVPlayerLayer.swift */,
+				D66F0179A11C7E0B420FCF1FBD60D8BE /* MoviePlayer.swift */,
+				BA7FB5737A3BC9437A2CF20E433B850A /* NSAttributedString+Extensions.swift */,
+				90B76EBF07815EFEA73F04436CE992CB /* VideoEditor.swift */,
+				43C989E25707F01E7094254EFC1E408C /* Pod */,
+				6418F3E1F20E0BFFC107621E4E393479 /* Support Files */,
+				149DE43B947F50A69C07ECCB9AD713D4 /* UnitTests */,
+			);
+			name = "OSAT-VideoCompositor";
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		43C989E25707F01E7094254EFC1E408C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				538C208051F053D8FFE5C8D140A052E3 /* LICENSE */,
+				67C562054BBCB69DEA6D982939E4E3DE /* OSAT-VideoCompositor.podspec */,
+				F32AA96E4870FCF5404981ACD59FEF4A /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		6418F3E1F20E0BFFC107621E4E393479 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFD9818873D9E6023D90E231BA4A4D9F /* OSAT-VideoCompositor.modulemap */,
+				C67D3F9A49BC99EAE35CFA36E03E2AB1 /* OSAT-VideoCompositor-dummy.m */,
+				EBE515A43CD6535C70B328E50B1229C3 /* OSAT-VideoCompositor-Info.plist */,
+				BBE47870473E9455BC95FE2AE1A67C0E /* OSAT-VideoCompositor-prefix.pch */,
+				DBC8C05854D631A795FE6ACE270E89D9 /* OSAT-VideoCompositor-umbrella.h */,
+				FF72F80D1768F1F0A66BB3211DD6D4C4 /* OSAT-VideoCompositor-Unit-UnitTests-frameworks.sh */,
+				6E3C8029BD703E8E3236807BF71C4DD2 /* OSAT-VideoCompositor-Unit-UnitTests-Info.plist */,
+				7B4476FBECB2C1F57F04AE8B09FDF8A1 /* OSAT-VideoCompositor-Unit-UnitTests-prefix.pch */,
+				9C4226A900032A4389392CB2755DAAF5 /* OSAT-VideoCompositor.debug.xcconfig */,
+				C1EDC52827421BF21B0B1BBAB2524053 /* OSAT-VideoCompositor.release.xcconfig */,
+				3D82E65D1009DBA20B4B077349B3A285 /* OSAT-VideoCompositor.unit-unittests.debug.xcconfig */,
+				261FC35D6BBFA9259B1EF1AF58DDBB18 /* OSAT-VideoCompositor.unit-unittests.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/OSAT-VideoCompositor";
 			sourceTree = "<group>";
 		};
 		6F21BE73D67B7B6ACC246CF30E50A204 /* Pods-OSAT-VideoCompositor_Tests */ = {
@@ -155,14 +214,6 @@
 			);
 			name = "Pods-OSAT-VideoCompositor_Tests";
 			path = "Target Support Files/Pods-OSAT-VideoCompositor_Tests";
-			sourceTree = "<group>";
-		};
-		8686A083CEF17560D679FF0C8E8328B4 /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				5B94A34C1E25AF97D0CA362A73AECDB8 /* AVPlayerTests.swift */,
-			);
-			name = UnitTests;
 			sourceTree = "<group>";
 		};
 		878DEFB6B6620E81840F5D9E757C66F4 /* Pods-OSAT-VideoCompositor_Example */ = {
@@ -182,29 +233,22 @@
 			path = "Target Support Files/Pods-OSAT-VideoCompositor_Example";
 			sourceTree = "<group>";
 		};
-		BDE13B0459BA98FB82BADDD0A56B94B2 /* OSAT-VideoCompositor */ = {
+		B8F9A7AFC21CD178A68303E15DFB7844 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F96A6FA1294DC26F005B0365 /* Utils */,
-				0AC53CB2B6E5A52D6A2FC32F465FAD7A /* AVPlayerLayer.swift */,
-				F96A6F9F294DC16C005B0365 /* VideoEditor.swift */,
-				3C78383DC85E8B8EE736448C21273ACE /* MoviePlayer.swift */,
-				D5536FB92EEDEE1BDA7B9E93C5403423 /* Pod */,
-				8686A083CEF17560D679FF0C8E8328B4 /* UnitTests */,
+				231997DA9D7AB331706D8F553D5EC2CD /* OSAT-VideoCompositor */,
 			);
-			name = "OSAT-VideoCompositor";
-			path = ../..;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				E59985E104D2C6BC397CE3EDF9782177 /* Development Pods */,
+				B8F9A7AFC21CD178A68303E15DFB7844 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				F450483ABDFE3A096761B2228FB1CD7D /* Products */,
 				181A099C09B361205D7E73D451C04F98 /* Targets Support Files */,
-				F92BA33A294DC862005EE5F8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,24 +258,6 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D5536FB92EEDEE1BDA7B9E93C5403423 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				5E7D0ABFEEE95CCE89D15895CB9BA995 /* LICENSE */,
-				D714925D7FBF102D8243F8A8709EFCC9 /* OSAT-VideoCompositor.podspec */,
-				0ED200FF6B4786A048860753926AA70B /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		E59985E104D2C6BC397CE3EDF9782177 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BDE13B0459BA98FB82BADDD0A56B94B2 /* OSAT-VideoCompositor */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		F450483ABDFE3A096761B2228FB1CD7D /* Products */ = {
@@ -245,43 +271,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F92BA33A294DC862005EE5F8 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				AA1432B5C08DC1E3715BA3C238EB6920 /* OSAT-VideoCompositor-umbrella.h */,
-				75262BA3489D1D68ED67B32A69A8D377 /* OSAT-VideoCompositor-dummy.m */,
-				A473406BB1390C2D8E417A7E0B199F40 /* OSAT-VideoCompositor.debug.xcconfig */,
-				6AD9CF818A26F89DF1FD499FBD654F07 /* OSAT-VideoCompositor.release.xcconfig */,
-				6C6EAE821D5EA84B95E0CF5A34F43BE4 /* OSAT-VideoCompositor.unit-unittests.debug.xcconfig */,
-				AF481DF86437207AD5DFD82490D8B1D6 /* OSAT-VideoCompositor.unit-unittests.release.xcconfig */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		F96A6FA1294DC26F005B0365 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				F96A6FA2294DC288005B0365 /* NSAttributedString+Extensions.swift */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1A821E71230011A79EDB97CEAF159FB0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E7F69C609F90EDC60394554606DA200 /* OSAT-VideoCompositor-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1CF49C1BCA8462A3C79AB5829AF7DC69 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				78F511B455CEB472825DF2734E424A9A /* Pods-OSAT-VideoCompositor_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA895C39F7B03EAF5E2CDE05CA1C10E8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C77EB1F66163B7CFF228FB8442B1303 /* OSAT-VideoCompositor-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +313,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B327DDED50FE6B9BFC00D1C4BBC2D1EA /* PBXTargetDependency */,
+				EF5B5DB10975BEFCE5669A32C59612E2 /* PBXTargetDependency */,
 			);
 			name = "OSAT-VideoCompositor-Unit-UnitTests";
 			productName = "OSAT-VideoCompositor-Unit-UnitTests";
@@ -327,7 +332,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				7EA952D4A568AE444DBA77AFF24E545C /* PBXTargetDependency */,
+				ED90FE68AD45F2D3E5C9CE7741094AA0 /* PBXTargetDependency */,
 			);
 			name = "Pods-OSAT-VideoCompositor_Tests";
 			productName = Pods_OSAT_VideoCompositor_Tests;
@@ -346,7 +351,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				7F51E13F2611AF85417B312FC06FBECF /* PBXTargetDependency */,
+				043250F413003CDE4BB92DA1D547FB38 /* PBXTargetDependency */,
 			);
 			name = "Pods-OSAT-VideoCompositor_Example";
 			productName = Pods_OSAT_VideoCompositor_Example;
@@ -355,12 +360,12 @@
 		};
 		AF8D2EF8E458DE95F75F0C055DC63C5F /* OSAT-VideoCompositor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD33C65432426DFEFC13323C1CA8FE38 /* Build configuration list for PBXNativeTarget "OSAT-VideoCompositor" */;
+			buildConfigurationList = 8095221F905E089E79A362D7B9356FC8 /* Build configuration list for PBXNativeTarget "OSAT-VideoCompositor" */;
 			buildPhases = (
-				1A821E71230011A79EDB97CEAF159FB0 /* Headers */,
-				C7971DDA43D1599F2539F4E83476F67B /* Sources */,
-				47DC87FDA33E27EE65EF10D79CC87E55 /* Frameworks */,
-				29181DC0DAFE458D456265E789FB1969 /* Resources */,
+				BA895C39F7B03EAF5E2CDE05CA1C10E8 /* Headers */,
+				BD9A3FE586C1FB856FBE4720EE8AC94E /* Sources */,
+				12D136DF221701B4A0C8C830BE8435DF /* Frameworks */,
+				733CD09CA1CF9874574EAB488D6D9BAA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -402,7 +407,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		29181DC0DAFE458D456265E789FB1969 /* Resources */ = {
+		733CD09CA1CF9874574EAB488D6D9BAA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -470,15 +475,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C7971DDA43D1599F2539F4E83476F67B /* Sources */ = {
+		BD9A3FE586C1FB856FBE4720EE8AC94E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83FEA259E5E276FFE7B11F9FBFB2B7FF /* AVPlayerLayer.swift in Sources */,
-				C36F3532A495AC83B1ED8743943F52F2 /* MoviePlayer.swift in Sources */,
-				F96A6FA0294DC16C005B0365 /* VideoEditor.swift in Sources */,
-				F96A6FA3294DC288005B0365 /* NSAttributedString+Extensions.swift in Sources */,
-				8A503A4653ABB94BC4FAD7FDB1133F61 /* OSAT-VideoCompositor-dummy.m in Sources */,
+				5E16883BB7AA51F008725FCEA4A5C28A /* AVPlayerLayer.swift in Sources */,
+				2A41DBD6635486F6EBDFFE7E76BF3349 /* MoviePlayer.swift in Sources */,
+				17CD34BAAFF9615E2000F65ED382BDB1 /* NSAttributedString+Extensions.swift in Sources */,
+				8D9618A2D7A60FD04D4DDBE61FEECA66 /* OSAT-VideoCompositor-dummy.m in Sources */,
+				F0FADDB7FC2DAE627491F748D7386C70 /* VideoEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,32 +498,33 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7EA952D4A568AE444DBA77AFF24E545C /* PBXTargetDependency */ = {
+		043250F413003CDE4BB92DA1D547FB38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OSAT-VideoCompositor";
+			target = AF8D2EF8E458DE95F75F0C055DC63C5F /* OSAT-VideoCompositor */;
+			targetProxy = 9D527511C0A18CB0F0946EB27FF040D6 /* PBXContainerItemProxy */;
+		};
+		ED90FE68AD45F2D3E5C9CE7741094AA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-OSAT-VideoCompositor_Example";
 			target = 5380257BD4B853305A5223992401DFB5 /* Pods-OSAT-VideoCompositor_Example */;
-			targetProxy = F138853AAF3C95E6C626BC1C6F2B8893 /* PBXContainerItemProxy */;
+			targetProxy = B050406A7587D65B0F17C0B28183428A /* PBXContainerItemProxy */;
 		};
-		7F51E13F2611AF85417B312FC06FBECF /* PBXTargetDependency */ = {
+		EF5B5DB10975BEFCE5669A32C59612E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "OSAT-VideoCompositor";
 			target = AF8D2EF8E458DE95F75F0C055DC63C5F /* OSAT-VideoCompositor */;
-			targetProxy = A9AC906193DA6951C1BBC664B6AACDC0 /* PBXContainerItemProxy */;
-		};
-		B327DDED50FE6B9BFC00D1C4BBC2D1EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "OSAT-VideoCompositor";
-			target = AF8D2EF8E458DE95F75F0C055DC63C5F /* OSAT-VideoCompositor */;
-			targetProxy = 0413697C372D1E0DC7C8E4C2A069C27F /* PBXContainerItemProxy */;
+			targetProxy = 6FB71408D2C50CF81838A96F6FB851B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		042453FD3EA852D5B9AA65B78070C90B /* Release */ = {
+		047FFF50D939AB0CAAA31AD7DAEC6B0F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12751B86A1EA81170553D32DB1464930 /* Pods-OSAT-VideoCompositor_Tests.release.xcconfig */;
+			baseConfigurationReference = BC420192BE3FA7F6CA25EEA551CEB1D8 /* Pods-OSAT-VideoCompositor_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -528,12 +534,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -548,10 +554,69 @@
 			};
 			name = Release;
 		};
-		612CD2255B141456673F9F347D0211DA /* Release */ = {
+		04C00C422B2F5B2376C59B7A5A23061E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AD9CF818A26F89DF1FD499FBD654F07 /* OSAT-VideoCompositor.release.xcconfig */;
+			baseConfigurationReference = 261FC35D6BBFA9259B1EF1AF58DDBB18 /* OSAT-VideoCompositor.unit-unittests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/OSAT-VideoCompositor/OSAT-VideoCompositor-Unit-UnitTests-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OSAT-VideoCompositor/OSAT-VideoCompositor-Unit-UnitTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_NAME = "OSAT-VideoCompositor-Unit-UnitTests";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.5;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30D792023D5BA032566BB292E540995D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 889A2587B5BCE0A64076218D084CFF05 /* Pods-OSAT-VideoCompositor_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		513D504552886C6B7A4A2172FE04633E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1EDC52827421BF21B0B1BBAB2524053 /* OSAT-VideoCompositor.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -580,106 +645,12 @@
 			};
 			name = Release;
 		};
-		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		8F06465BBBE34C30582817C1ECBACA9C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC420192BE3FA7F6CA25EEA551CEB1D8 /* Pods-OSAT-VideoCompositor_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A75AC1FCEE1F2520455F29941A820381 /* Debug */ = {
+		7F27D51012AC5C6B8E987EB4410F5962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEAB06D86DE4EAE7E1510329EE0FC3AF /* Pods-OSAT-VideoCompositor_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -691,7 +662,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example.modulemap";
@@ -708,63 +679,7 @@
 			};
 			name = Debug;
 		};
-		BB7F01B8DB3313EA7897F63B8A304AC4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF481DF86437207AD5DFD82490D8B1D6 /* OSAT-VideoCompositor.unit-unittests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = YES;
-				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/OSAT-VideoCompositor/OSAT-VideoCompositor-Unit-UnitTests-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OSAT-VideoCompositor/OSAT-VideoCompositor-Unit-UnitTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_NAME = "OSAT-VideoCompositor-Unit-UnitTests";
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.5;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		C341934567CD6600B568CD4FAC4F4325 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 889A2587B5BCE0A64076218D084CFF05 /* Pods-OSAT-VideoCompositor_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -817,7 +732,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -830,11 +745,12 @@
 			};
 			name = Debug;
 		};
-		D4B310531F304BD322B11C4E1E8740A4 /* Debug */ = {
+		917A24A02FA71CEC0A4B6EDE0FBE0DA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C6EAE821D5EA84B95E0CF5A34F43BE4 /* OSAT-VideoCompositor.unit-unittests.debug.xcconfig */;
+			baseConfigurationReference = 3D82E65D1009DBA20B4B077349B3A285 /* OSAT-VideoCompositor.unit-unittests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
@@ -852,10 +768,108 @@
 			};
 			name = Debug;
 		};
-		D5B8D6C2B8AD91A214F41EAEFF7FFFA5 /* Debug */ = {
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A473406BB1390C2D8E417A7E0B199F40 /* OSAT-VideoCompositor.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		ABD46F06CB48A02B6C6F9FF9BB4CC3B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12751B86A1EA81170553D32DB1464930 /* Pods-OSAT-VideoCompositor_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OSAT-VideoCompositor_Tests/Pods-OSAT-VideoCompositor_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4083B966BA37C1880203F7DFC4713BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C4226A900032A4389392CB2755DAAF5 /* OSAT-VideoCompositor.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -889,8 +903,8 @@
 		34E89D43FA10DF8454D97CB758477D61 /* Build configuration list for PBXNativeTarget "Pods-OSAT-VideoCompositor_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C341934567CD6600B568CD4FAC4F4325 /* Debug */,
-				042453FD3EA852D5B9AA65B78070C90B /* Release */,
+				30D792023D5BA032566BB292E540995D /* Debug */,
+				ABD46F06CB48A02B6C6F9FF9BB4CC3B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -898,8 +912,17 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
-				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8095221F905E089E79A362D7B9356FC8 /* Build configuration list for PBXNativeTarget "OSAT-VideoCompositor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4083B966BA37C1880203F7DFC4713BA /* Debug */,
+				513D504552886C6B7A4A2172FE04633E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -907,8 +930,8 @@
 		AB3C514400F3174A1DB1D71603D23C54 /* Build configuration list for PBXNativeTarget "Pods-OSAT-VideoCompositor_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A75AC1FCEE1F2520455F29941A820381 /* Debug */,
-				8F06465BBBE34C30582817C1ECBACA9C /* Release */,
+				7F27D51012AC5C6B8E987EB4410F5962 /* Debug */,
+				047FFF50D939AB0CAAA31AD7DAEC6B0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -916,17 +939,8 @@
 		AE3D9F48DDACA87510D7F7A637F5C2D8 /* Build configuration list for PBXNativeTarget "OSAT-VideoCompositor-Unit-UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4B310531F304BD322B11C4E1E8740A4 /* Debug */,
-				BB7F01B8DB3313EA7897F63B8A304AC4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CD33C65432426DFEFC13323C1CA8FE38 /* Build configuration list for PBXNativeTarget "OSAT-VideoCompositor" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5B8D6C2B8AD91A214F41EAEFF7FFFA5 /* Debug */,
-				612CD2255B141456673F9F347D0211DA /* Release */,
+				917A24A02FA71CEC0A4B6EDE0FBE0DA8 /* Debug */,
+				04C00C422B2F5B2376C59B7A5A23061E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -106,6 +106,7 @@ class ViewController: UIViewController {
         
         let url = Bundle.main.url(forResource: "videoplayback", withExtension: "mp4")!
         videoPlayerLayer = AVPlayerView(frame: .zero)
+        originalVideoUrl = url
         view.backgroundColor = .black
         
         videoPlayer = MoviePlayer(customPlayerView: videoPlayerLayer)
