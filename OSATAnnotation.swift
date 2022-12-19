@@ -17,10 +17,10 @@ public struct OSATImageAnnotation: OSATAnnotationProtocol {
     let image: UIImage
     let frame: CGRect
     let timeRange: CMTimeRange
-    let caption: NSString?
-    let attributedCaption: NSAttributedString?
+    let caption: String?
+    let attributedCaption: AttributedString?
     
-    public init(image: UIImage, frame: CGRect, timeRange: CMTimeRange, caption: NSString?, attributedCaption: NSAttributedString?) {
+    public init(image: UIImage, frame: CGRect, timeRange: CMTimeRange, caption: String?, attributedCaption: AttributedString?) {
         self.image = image
         self.frame = frame
         self.timeRange = timeRange
@@ -39,15 +39,15 @@ public struct OSATImageAnnotation: OSATAnnotationProtocol {
 
 /// OSATTextAnnotation holds data for the text annotation to be rendered on Video
 public struct OSATTextAnnotation: OSATAnnotationProtocol {
-    let text: NSString
+    let text: String
     let frame: CGRect
     let timeRange: CMTimeRange
-    let attributedText: NSAttributedString?
+    let attributedText: AttributedString?
     let textColor: UIColor?
     let backgroundColor: UIColor?
     let font: UIFont?
     
-    public init(text: NSString, frame: CGRect, timeRange: CMTimeRange, attributedText: NSAttributedString?, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?) {
+    public init(text: String, frame: CGRect, timeRange: CMTimeRange, attributedText: AttributedString?, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?) {
         self.text = text
         self.frame = frame
         self.timeRange = timeRange
