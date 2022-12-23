@@ -19,7 +19,6 @@
 		A55B9B27597E963F86296A25A6124C49 /* Pods-OSAT-VideoCompositor_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE84A806BEC2D8F43DD3C0842A792DC /* Pods-OSAT-VideoCompositor_Example-dummy.m */; };
 		C930CBEE2DE9F94ED7D8D824FD684B47 /* AVPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC106274B20297DD13E1F925CD8161BA /* AVPlayerTests.swift */; };
 		EA7E51AEA0F9FFD22AA5009B9502389A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		F0FADDB7FC2DAE627491F748D7386C70 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B76EBF07815EFEA73F04436CE992CB /* VideoEditor.swift */; };
 		F87EB61206532C8E3853AD82FD9092C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		F9FB6E252953879400D1C047 /* OSATAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB6E242953879400D1C047 /* OSATAnnotation.swift */; };
 		F9FB6E272953879A00D1C047 /* OSATVideoComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB6E262953879A00D1C047 /* OSATVideoComposition.swift */; };
@@ -71,7 +70,6 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7B4476FBECB2C1F57F04AE8B09FDF8A1 /* OSAT-VideoCompositor-Unit-UnitTests-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSAT-VideoCompositor-Unit-UnitTests-prefix.pch"; sourceTree = "<group>"; };
 		889A2587B5BCE0A64076218D084CFF05 /* Pods-OSAT-VideoCompositor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OSAT-VideoCompositor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		90B76EBF07815EFEA73F04436CE992CB /* VideoEditor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoEditor.swift; path = "OSAT-VideoCompositor/Classes/VideoEditor.swift"; sourceTree = "<group>"; };
 		92784D4BEC9D49B55DA1372B91557592 /* Pods-OSAT-VideoCompositor_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OSAT-VideoCompositor_Example-umbrella.h"; sourceTree = "<group>"; };
 		93F97110D6A840F5BACB4330985ED378 /* Pods-OSAT-VideoCompositor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-OSAT-VideoCompositor_Tests.modulemap"; sourceTree = "<group>"; };
 		9C4226A900032A4389392CB2755DAAF5 /* OSAT-VideoCompositor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSAT-VideoCompositor.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				F9FB6E262953879A00D1C047 /* OSATVideoComposition.swift */,
 				F9FB6E28295387A200D1C047 /* OSATVideoCompositionErrors.swift */,
 				F9FB6E242953879400D1C047 /* OSATAnnotation.swift */,
-				90B76EBF07815EFEA73F04436CE992CB /* VideoEditor.swift */,
 				43C989E25707F01E7094254EFC1E408C /* Pod */,
 				6418F3E1F20E0BFFC107621E4E393479 /* Support Files */,
 				149DE43B947F50A69C07ECCB9AD713D4 /* UnitTests */,
@@ -494,7 +491,6 @@
 				17CD34BAAFF9615E2000F65ED382BDB1 /* NSAttributedString+Extensions.swift in Sources */,
 				F9FB6E29295387A200D1C047 /* OSATVideoCompositionErrors.swift in Sources */,
 				8D9618A2D7A60FD04D4DDBE61FEECA66 /* OSAT-VideoCompositor-dummy.m in Sources */,
-				F0FADDB7FC2DAE627491F748D7386C70 /* VideoEditor.swift in Sources */,
 				F9FB6E272953879A00D1C047 /* OSATVideoComposition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
