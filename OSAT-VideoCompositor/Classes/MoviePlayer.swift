@@ -47,10 +47,14 @@ open class MoviePlayer: NSObject {
         return try await customPlayerView.getDuration()
     }
     
-    public func addWatermark(text: String, image: UIImage? = nil, inputURL: URL, outputURL: URL? = nil, position: WaterMarkPosition, fontSize: Int? = 20, fontColor: UIColor = .black, handler: @escaping (_ exportSession: AVAssetExportSession?)-> Void) {
+    public func addWatermark(text: String, image: UIImage? = nil, inputURL: URL, outputURL: URL? = nil, position: OSATWaterMarkPosition, fontSize: Int? = 20, fontColor: UIColor = .black, handler: @escaping (_ exportSession: AVAssetExportSession?)-> Void) {
         customPlayerView.addWatermark(text: text, image: image, inputURL: inputURL, outputURL: outputURL, position: position, fontSize: fontSize, fontColor: fontColor) { exportSession in
             handler(exportSession)
         }
+    }
+    
+    public func getVideoSize() -> CGSize {
+        return customPlayerView.getVideoSize()
     }
 }
 

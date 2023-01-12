@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private var waterMarkPosition: WaterMarkPosition = .LeftBottomCorner
+    private var waterMarkPosition: OSATWaterMarkPosition = .LeftTopCorner
     private var exportUrl: URL?
     private var tmpUrl: URL?
     private var selectedImageSrc: UIImage?
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     // Text WaterMark properties
     private var text: String = ""
     private var fontSize: Int = 20
-    private var fontColor: UIColor = .black
+    private var fontColor: UIColor = .yellow
     
     private struct Constants {
         static let playButton = "play"
@@ -355,6 +355,41 @@ class ViewController: UIViewController {
         showAlertWithTextField()
     }
     
+    private func createImageAnnotation() -> OSATImageAnnotation {
+        let imageFrame = addImage(image: selectedImageSrc, videoSize: videoPlayer.getVideoSize(), fontSize: 15, isText: false)
+        let annotation = OSATImageAnnotation(image: selectedImageSrc!, frame: imageFrame, timeRange: nil, caption: "", attributedCaption: nil)
+        return annotation
+    }
+    
+    private func addImage(image: UIImage?, videoSize: CGSize, fontSize: Int?, isText: Bool, positionOfWaterMark: OSATWaterMarkPosition = .LeftTopCorner) -> CGRect {
+        guard let image = image else { return  .zero }
+        
+        let aspect: CGFloat = image.size.width / image.size.height
+        
+        let width: CGFloat = videoSize.width / 6
+        let height = width / aspect
+        
+        let wd = width
+        let startX = (videoSize.width - width)
+        
+        var rect = CGRect(x: startX, y: 0, width: wd, height: height)
+        let currentFontSize = isText ? (30 + (fontSize ?? 0)) : 10
+        
+        // custom logic for positioning
+        switch positionOfWaterMark {
+        case .LeftBottomCorner:
+            rect = CGRect(x: 10, y: CGFloat(currentFontSize), width: wd, height: height)
+        case .RightBottomCorner:
+            rect = CGRect(x: startX, y: CGFloat(currentFontSize), width: wd - 10, height: height)
+        case .LeftTopCorner:
+            rect = CGRect(x: 10, y: videoSize.height - (height + 10), width: wd, height: height)
+        case .RightTopCorner:
+            rect = CGRect(x: startX, y: videoSize.height - (height + 10), width: wd - 10, height: height)
+        }
+        
+        return rect
+    }
+    
     private func addWaterMark() {
         guard let inputURL = originalVideoUrl else { return }
         
@@ -362,9 +397,15 @@ class ViewController: UIViewController {
         videoPlayer.pause()
         spinner.isHidden = false
         spinner.startAnimating()
+        // img
+        let imageAnnotation = createImageAnnotation()
+        let imgFrame = addImage(image: selectedImageSrc!, videoSize: videoPlayer.getVideoSize(), fontSize: 20, isText: true)
+        // text
+        let textAnnotation = AnnotationLayerUtils.createTextLayer(text: text, videoSize: videoPlayer.getVideoSize(), fontSize: 20, imageSize: imgFrame, fontColor: .yellow, positionOfWaterMark: waterMarkPosition)
         
-        videoPlayer.addWatermark(text: text, image: selectedImageSrc, inputURL: inputURL, outputURL: nil, position: waterMarkPosition, fontSize: fontSize, fontColor: fontColor, handler: { [weak self] (exportSession) in
-            guard let session = exportSession, let self = self else { return }
+        let osatVideoComposition = OSATVideoComposition()
+        osatVideoComposition.createVideoComposition(sourceVideoURL: inputURL, exportURL: exportUrl!, annotations: [textAnnotation, imageAnnotation]) { [weak self ] session in
+            guard let self = self else { return }
             
             switch session.status {
             case .completed:
@@ -387,7 +428,14 @@ class ViewController: UIViewController {
             
             default: break
             }
-        })
+        } errorHandler: { error in
+            NSLog("\(error)", "")
+        }
+
+        
+//        videoPlayer.addWatermark(text: text, image: selectedImageSrc, inputURL: inputURL, outputURL: nil, position: waterMarkPosition, fontSize: fontSize, fontColor: fontColor, handler: { [weak self] (exportSession) in
+//
+//        })
     }
     
     private func showAlertWithTextField() {
@@ -458,18 +506,18 @@ extension ViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         exportUrl = urls.first
         controller.dismiss(animated: true)
-        let videoName = UUID().uuidString
-        
-        let finalUrl = exportUrl!
-          .appendingPathComponent(videoName)
-          .appendingPathExtension("mov")
-        
-        do {
-            guard let atUrl = tmpUrl else { return }
-            try FileManager.default.moveItem(at: atUrl, to: finalUrl)
-        } catch {
-            print("error: \(error)")
-        }
+//        let videoName = UUID().uuidString
+//
+//        let finalUrl = exportUrl!
+//          .appendingPathComponent(videoName)
+//          .appendingPathExtension("mov")
+//
+//        do {
+//            guard let atUrl = tmpUrl else { return }
+//            try FileManager.default.moveItem(at: atUrl, to: finalUrl)
+//        } catch {
+//            print("error: \(error)")
+//        }
     }
 }
 

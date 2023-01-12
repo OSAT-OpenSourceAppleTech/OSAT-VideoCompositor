@@ -8,13 +8,6 @@
 import AVFoundation
 import UIKit
 
-public enum WaterMarkPosition {
-    case LeftBottomCorner
-    case RightBottomCorner
-    case LeftTopCorner
-    case RightTopCorner
-}
-
 public protocol AVPlayerProtocol: AnyObject {
     var delegate: AVPlayerCustomViewDelegate? { get set }
     func play()
@@ -23,7 +16,8 @@ public protocol AVPlayerProtocol: AnyObject {
     func seek(to time: CMTime)
     func registerTimeIntervalForObservingPlayer(_ timeInterval: CGFloat)
     func getDuration() async throws -> CMTime?
-    func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: WaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (_ exportSession: AVAssetExportSession?)-> Void)
+    func getVideoSize() -> CGSize
+    func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: OSATWaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (_ exportSession: AVAssetExportSession?)-> Void)
 }
 
 public protocol AVPlayerCustomViewDelegate: AnyObject {
@@ -107,6 +101,11 @@ open class AVPlayerView: AVPlayerCustomView {
         addPeriodicObservers()
     }
     
+    open func getVideoSize() -> CGSize {
+        let track = asset?.tracks(withMediaType: .video).first
+        return track?.naturalSize ?? .zero
+    }
+    
     public func getDuration() async throws -> CMTime? {
         do {
             let duration = try await asset?.load(.duration)
@@ -117,7 +116,7 @@ open class AVPlayerView: AVPlayerCustomView {
         }
     }
     
-    public func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: WaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (AVAssetExportSession?) -> Void) {
+    public func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: OSATWaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (AVAssetExportSession?) -> Void) {
         // TODO: Implement water-mark
     }
     

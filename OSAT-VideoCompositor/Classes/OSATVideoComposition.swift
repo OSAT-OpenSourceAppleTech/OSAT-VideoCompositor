@@ -7,8 +7,9 @@
 
 import AVFoundation
 
-struct OSATVideoComposition {
+public struct OSATVideoComposition {
     
+    public init() {}
     /// Creates a video composition for a source video with annotations
     /// - Parameters:
     ///   - sourceVideoURL: URL for the source video
@@ -48,8 +49,15 @@ struct OSATVideoComposition {
         let videoLayer = CALayer()
         videoLayer.frame = CGRect(origin: .zero, size: videoSize)
         
+        videoLayer.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: videoSize.width,
+            height: videoSize.height)
+        
         let outputLayer = CALayer()
         outputLayer.frame = CGRect(origin: .zero, size: videoSize)
+        outputLayer.addSublayer(videoLayer)
         
         annotations.forEach { outputLayer.addSublayer($0.getAnnotationLayer()) }
         
