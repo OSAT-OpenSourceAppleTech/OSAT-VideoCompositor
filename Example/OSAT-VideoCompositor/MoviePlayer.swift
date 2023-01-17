@@ -7,6 +7,7 @@
 
 import AVFoundation
 import Foundation
+import OSAT_VideoCompositor
 
 public protocol MoviePlayerDelegate: AnyObject {
     func moviePlayer(_ moviePlayer: MoviePlayer, didReceivePlayBack time: CMTime)

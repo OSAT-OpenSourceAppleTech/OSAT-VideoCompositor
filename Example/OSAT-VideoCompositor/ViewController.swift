@@ -472,7 +472,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MoviePlayerDelegate {
-    func moviePlayer(_ moviePlayer: OSAT_VideoCompositor.MoviePlayer, didReceivePlayBack time: CMTime) {
+    func moviePlayer(_ moviePlayer: MoviePlayer, didReceivePlayBack time: CMTime) {
         slider.value = Float(time.seconds)
     }
 }

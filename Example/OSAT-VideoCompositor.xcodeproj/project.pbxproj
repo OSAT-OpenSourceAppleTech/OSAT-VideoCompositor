@@ -18,6 +18,8 @@
 		F96A6FA9294DC796005B0365 /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F96A6FA8294DC796005B0365 /* videoplayback.mp4 */; };
 		F9C12525297057D500AB9ACB /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */; };
 		F9C125272970580700AB9ACB /* AnnotationLayerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */; };
+		F9DCDD212976D4A8002F57A0 /* AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCDD202976D4A8002F57A0 /* AVPlayerLayer.swift */; };
+		F9DCDD232976D570002F57A0 /* MoviePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCDD222976D54B002F57A0 /* MoviePlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		F96A6FA8294DC796005B0365 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
 		F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationLayerUtils.swift; sourceTree = "<group>"; };
+		F9DCDD202976D4A8002F57A0 /* AVPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerLayer.swift; sourceTree = "<group>"; };
+		F9DCDD222976D54B002F57A0 /* MoviePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayer.swift; sourceTree = "<group>"; };
 		F9E4906D291544C400CB2598 /* OSAT-VideoCompositor_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OSAT-VideoCompositor_Example.entitlements"; sourceTree = "<group>"; };
 		F9E4906E291544C500CB2598 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -103,6 +107,8 @@
 			children = (
 				F9C12523297057B500AB9ACB /* Utils */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				F9DCDD202976D4A8002F57A0 /* AVPlayerLayer.swift */,
+				F9DCDD222976D54B002F57A0 /* MoviePlayer.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				F96A6FA8294DC796005B0365 /* videoplayback.mp4 */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -354,6 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F9DCDD232976D570002F57A0 /* MoviePlayer.swift in Sources */,
+				F9DCDD212976D4A8002F57A0 /* AVPlayerLayer.swift in Sources */,
 				F9C12525297057D500AB9ACB /* NSAttributedString+Extensions.swift in Sources */,
 				F9C125272970580700AB9ACB /* AnnotationLayerUtils.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

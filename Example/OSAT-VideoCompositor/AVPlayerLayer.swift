@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import OSAT_VideoCompositor
 import UIKit
 
 public protocol AVPlayerProtocol: AnyObject {
