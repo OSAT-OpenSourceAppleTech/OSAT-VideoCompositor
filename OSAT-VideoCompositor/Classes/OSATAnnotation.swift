@@ -7,8 +7,16 @@
 
 import AVFoundation
 
+/// OSATWaterMarkPosition describes where we can align the text in the video frame.
+public enum OSATWaterMarkPosition {
+    case LeftBottomCorner
+    case RightBottomCorner
+    case LeftTopCorner
+    case RightTopCorner
+}
+
 /// OSATAnnotationProtocol  is a base protocol for all Annotation object layers supported by OSAT-VideoCompositor
-protocol OSATAnnotationProtocol {
+public protocol OSATAnnotationProtocol {
     func getAnnotationLayer() -> CALayer
 }
 
@@ -16,11 +24,11 @@ protocol OSATAnnotationProtocol {
 public struct OSATImageAnnotation: OSATAnnotationProtocol {
     let image: UIImage
     let frame: CGRect
-    let timeRange: CMTimeRange
+    let timeRange: CMTimeRange?
     let caption: String?
-    let attributedCaption: AttributedString?
+    let attributedCaption: NSAttributedString?
     
-    public init(image: UIImage, frame: CGRect, timeRange: CMTimeRange, caption: String?, attributedCaption: AttributedString?) {
+    public init(image: UIImage, frame: CGRect, timeRange: CMTimeRange?, caption: String?, attributedCaption: NSAttributedString?) {
         self.image = image
         self.frame = frame
         self.timeRange = timeRange
@@ -41,13 +49,13 @@ public struct OSATImageAnnotation: OSATAnnotationProtocol {
 public struct OSATTextAnnotation: OSATAnnotationProtocol {
     let text: String
     let frame: CGRect
-    let timeRange: CMTimeRange
-    let attributedText: AttributedString?
+    let timeRange: CMTimeRange?
+    let attributedText: NSAttributedString?
     let textColor: UIColor?
     let backgroundColor: UIColor?
     let font: UIFont?
     
-    public init(text: String, frame: CGRect, timeRange: CMTimeRange, attributedText: AttributedString?, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?) {
+    public init(text: String, frame: CGRect, timeRange: CMTimeRange?, attributedText: NSAttributedString?, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?) {
         self.text = text
         self.frame = frame
         self.timeRange = timeRange
@@ -66,7 +74,6 @@ public struct OSATTextAnnotation: OSATAnnotationProtocol {
 
         textLayer.shouldRasterize = true
         textLayer.rasterizationScale = UIScreen.main.scale
-        textLayer.backgroundColor = UIColor.clear.cgColor
         textLayer.alignmentMode = .center
         textLayer.displayIfNeeded()
         return textLayer

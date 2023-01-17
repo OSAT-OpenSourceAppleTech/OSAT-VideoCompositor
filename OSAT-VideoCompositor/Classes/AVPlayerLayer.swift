@@ -8,13 +8,6 @@
 import AVFoundation
 import UIKit
 
-public enum WaterMarkPosition {
-    case LeftBottomCorner
-    case RightBottomCorner
-    case LeftTopCorner
-    case RightTopCorner
-}
-
 public protocol AVPlayerProtocol: AnyObject {
     var delegate: AVPlayerCustomViewDelegate? { get set }
     func play()
@@ -23,7 +16,8 @@ public protocol AVPlayerProtocol: AnyObject {
     func seek(to time: CMTime)
     func registerTimeIntervalForObservingPlayer(_ timeInterval: CGFloat)
     func getDuration() async throws -> CMTime?
-    func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: WaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (_ exportSession: AVAssetExportSession?)-> Void)
+    func getVideoSize() -> CGSize
+    func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: OSATWaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (_ exportSession: AVAssetExportSession?)-> Void)
 }
 
 public protocol AVPlayerCustomViewDelegate: AnyObject {
@@ -44,7 +38,6 @@ open class AVPlayerView: AVPlayerCustomView {
     private(set) var avPlayerItem: AVPlayerItem?
     private var timeInterval: CGFloat = 1.0
     private var observer: Any?
-    private let videoEditor: VideoEditor
     
     // MARK: - Public apis for testing
     public var isVideoPlaying = false
@@ -60,7 +53,6 @@ open class AVPlayerView: AVPlayerCustomView {
     }
     
     public override init(frame: CGRect = .zero) {
-        self.videoEditor = VideoEditor()
         super.init(frame: frame)
         setVideoPlayer()
         registerForNotification()
@@ -68,7 +60,6 @@ open class AVPlayerView: AVPlayerCustomView {
     
     public init(frame: CGRect, url: URL?) {
         self.url = url
-        self.videoEditor = VideoEditor()
         super.init(frame: frame)
         
         setVideoPlayer()
@@ -76,7 +67,6 @@ open class AVPlayerView: AVPlayerCustomView {
     }
     
     public required init?(coder: NSCoder) {
-        self.videoEditor = VideoEditor()
         super.init(coder: coder)
     }
     
@@ -111,6 +101,11 @@ open class AVPlayerView: AVPlayerCustomView {
         addPeriodicObservers()
     }
     
+    open func getVideoSize() -> CGSize {
+        let track = asset?.tracks(withMediaType: .video).first
+        return track?.naturalSize ?? .zero
+    }
+    
     public func getDuration() async throws -> CMTime? {
         do {
             let duration = try await asset?.load(.duration)
@@ -121,8 +116,8 @@ open class AVPlayerView: AVPlayerCustomView {
         }
     }
     
-    public func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: WaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (AVAssetExportSession?) -> Void) {
-        videoEditor.addWatermark(text: text, image: image, inputURL: inputURL, outputURL: outputURL, position: position, fontSize: fontSize, fontColor: fontColor, handler: handler)
+    public func addWatermark(text: String, image: UIImage?, inputURL: URL, outputURL: URL?, position: OSATWaterMarkPosition, fontSize: Int?, fontColor: UIColor, handler: @escaping (AVAssetExportSession?) -> Void) {
+        // TODO: Implement water-mark
     }
     
     // For test
