@@ -11,8 +11,13 @@ import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
-    private var videoPlayer: MoviePlayer!
-    private var videoPlayerLayer: AVPlayerView!
+    private struct Constants {
+        static let playButton = "play"
+        static let pauseButton = "pause"
+        static let iconSize: CGFloat = 40
+    }
+    
+    // MARK: - Private variables
     private var duration: CMTime?
     private var videoSourceUrl: URL? {
         didSet {
@@ -22,7 +27,6 @@ class ViewController: UIViewController {
     
     private var waterMarkPosition: OSATWaterMarkPosition = .LeftTopCorner
     private var exportUrl: URL?
-    private var tmpUrl: URL?
     private var selectedImageSrc: UIImage?
     private var originalVideoUrl: URL?
     private var tmpVideoSrcUrl: URL? {
@@ -31,16 +35,13 @@ class ViewController: UIViewController {
         }
     }
     
-    // Text WaterMark properties
+    // MARK: - Default Text WaterMark properties
     private var text: String = ""
     private var fontSize: Int = 20
     private var fontColor: UIColor = .yellow
     
-    private struct Constants {
-        static let playButton = "play"
-        static let pauseButton = "pause"
-        static let iconSize: CGFloat = 40
-    }
+    // MARK: - UI
+    private var videoPlayerLayer: AVPlayerView!
     
     private lazy var playerView: UIView = {
         let view = UIView(frame: .zero)
@@ -60,30 +61,6 @@ class ViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(handlePlayButtonAction(_:)), for: .touchUpInside)
         btn.accessibilityIdentifier = "playButton"
-        return btn
-    }()
-    
-    private lazy var exportButton: UIButton = {
-        let btn = UIButton(frame: .zero)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.addTarget(self, action: #selector(handleExportButtonAction(_:)), for: .touchUpInside)
-        btn.accessibilityIdentifier = "exportButton"
-        return btn
-    }()
-    
-    private lazy var composebutton: UIButton = {
-        let btn = UIButton(frame: .zero)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.addTarget(self, action: #selector(showAddWatermark(_:)), for: .touchUpInside)
-        btn.accessibilityIdentifier = "composebutton"
-        return btn
-    }()
-    
-    private lazy var composeForOnlyImageButton: UIButton = {
-        let btn = UIButton(frame: .zero)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.addTarget(self, action: #selector(handleComposeButtonButtonAction(_:)), for: .touchUpInside)
-        btn.accessibilityIdentifier = "composeForOnlyImageButton"
         return btn
     }()
     
@@ -109,10 +86,9 @@ class ViewController: UIViewController {
         originalVideoUrl = url
         view.backgroundColor = .black
         
-        videoPlayer = MoviePlayer(customPlayerView: videoPlayerLayer)
-        videoPlayer?.set(url: url)
-        videoPlayer?.delegate = self
-        videoPlayer?.registerTimeIntervalForObservingPlayer(1)
+        videoPlayerLayer?.set(url: url)
+        videoPlayerLayer?.delegate = self
+        videoPlayerLayer?.registerTimeIntervalForObservingPlayer(1)
         videoPlayerLayer.translatesAutoresizingMaskIntoConstraints = false
         
         navigationItem.title = "OSAT Video Compositer"
@@ -120,117 +96,15 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem?.menu = createVideoImageMenu()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
-        navigationItem.leftBarButtonItem?.menu = createMenu()
+        navigationItem.leftBarButtonItem?.menu = createWaterMarkMenu()
         
         videoPlayerLayer.backgroundColor = .systemGray
-        videoPlayer?.play()
+        videoPlayerLayer.play()
         addSubviews()
         setButtonProperties()
         setupConstraints()
         Task {
             await getDuration()
-        }
-    }
-    
-    private func updateMenu() {
-        navigationItem.leftBarButtonItem?.menu = createMenu()
-    }
-    
-    private func createMenu() -> UIMenu? {
-        let leftBottomCornerPosition = UIAction(title: "Left Corner bottom Position", image: UIImage(systemName: "pencil.circle"), identifier: UIAction.Identifier("leftBtm"), attributes: [], state: waterMarkPosition == .LeftBottomCorner ? .on : .off) { action in
-            self.waterMarkPosition = .LeftBottomCorner
-            self.updateMenu()
-        }
-        
-        let rightBottomCornerPosition = UIAction(title: "Right Corner bottom Position", image: UIImage(systemName: "pencil.circle"), attributes: [], state: waterMarkPosition == .RightBottomCorner ? .on : .off) { action in
-            self.waterMarkPosition = .RightBottomCorner
-            self.updateMenu()
-        }
-        
-        let leftTopCornerPosition = UIAction(title: "Left Corner Top Position", image: UIImage(systemName: "pencil.circle"), attributes: [], state: waterMarkPosition == .LeftTopCorner ? .on : .off) { action in
-            self.waterMarkPosition = .LeftTopCorner
-            self.updateMenu()
-        }
-        
-        let rightTopCornerPosition = UIAction(title: "Right Corner Top Position", image: UIImage(systemName: "pencil.circle"), attributes: [], state: waterMarkPosition == .RightTopCorner ? .on : .off) { action in
-            self.waterMarkPosition = .RightTopCorner
-            self.updateMenu()
-        }
-
-        let elements: [UIAction] = [leftBottomCornerPosition, rightBottomCornerPosition, leftTopCornerPosition, rightTopCornerPosition]
-        let menu = UIMenu(title: "Water Mark Position", children: elements)
-        return menu
-    }
-    
-    private func showImagePicker() {
-        videoPlayer.pause()
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.mediaTypes = ["public.movie"]
-        pickerController.sourceType = .savedPhotosAlbum
-        DispatchQueue.main.async {
-            self.present(pickerController, animated: true)
-        }
-       
-    }
-    
-    private func createVideoImageMenu() -> UIMenu? {
-        // Deferred menu
-        let selectVideo = UIAction(title: "Select a Video", image: UIImage(systemName: "video"), identifier: UIAction.Identifier("leftBtm"), attributes: [], state: .off) { action in
-            self.showImagePicker()
-        }
-        
-        let selectImage = UIAction(title: "Select an Image", image: UIImage(systemName: "photo"), attributes: [], state: .off) { action in
-            self.showImagePickerForWaterMark()
-        }
-        
-        let pickFontColor = UIAction(title: "Select Font Color", image: UIImage(systemName: "pencil.tip"), identifier: UIAction.Identifier("pick font color"), attributes: [], state: .off) { action in
-            self.showColorPicker()
-        }
-        
-        let deferredMenu = UIDeferredMenuElement { (menuElements) in
-            let menu = UIMenu(title: "Image/Font Color", options: .displayInline,  children: [selectImage, pickFontColor])
-            menuElements([menu])
-        }
-        
-        let elements: [UIAction] = [selectVideo]
-        var menu = UIMenu(title: "Select Video", children: elements)
-        menu = menu.replacingChildren([selectVideo, deferredMenu])
-        return menu
-    }
-    
-    private func showImagePickerForWaterMark() {
-        videoPlayer.pause()
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .savedPhotosAlbum
-        DispatchQueue.main.async {
-            self.present(pickerController, animated: true)
-        }
-       
-    }
-    
-    private func showColorPicker() {
-        let pickerController = UIColorPickerViewController()
-        pickerController.delegate = self
-        DispatchQueue.main.async {
-            self.present(pickerController, animated: true)
-        }
-    }
-    
-    private func setupSliderProperties() {
-        slider.minimumValue = 0
-        slider.maximumValue = Float(duration?.seconds ?? 100)
-    }
-    
-    private func getDuration() async {
-        do {
-            self.duration = try await videoPlayer?.getDuration()
-            setupSliderProperties()
-            NSLog("\(String(describing: duration))", "")
-            
-        } catch {
-            NSLog("\(error)", "")
         }
     }
     
@@ -241,9 +115,6 @@ class ViewController: UIViewController {
         sliderParentView.isUserInteractionEnabled = true
         sliderParentView.addSubview(slider)
         sliderParentView.addSubview(playbutton)
-        sliderParentView.addSubview(composebutton)
-        sliderParentView.addSubview(exportButton)
-        sliderParentView.addSubview(composeForOnlyImageButton)
         
         playerView.addSubview(videoPlayerLayer)
         playerView.addSubview(spinner)
@@ -277,45 +148,136 @@ class ViewController: UIViewController {
             playbutton.topAnchor.constraint(equalTo: sliderParentView.topAnchor, constant: 20),
             playbutton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
             playbutton.widthAnchor.constraint(equalToConstant: Constants.iconSize),
-            
-            exportButton.centerXAnchor.constraint(equalTo: sliderParentView.centerXAnchor),
-            exportButton.topAnchor.constraint(equalTo: sliderParentView.topAnchor, constant: 20),
-            exportButton.widthAnchor.constraint(equalToConstant: Constants.iconSize),
-            exportButton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
-            
-            composebutton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
-            composebutton.widthAnchor.constraint(equalToConstant: Constants.iconSize),
-            composebutton.trailingAnchor.constraint(equalTo: sliderParentView.trailingAnchor, constant: -10),
-            composebutton.centerYAnchor.constraint(equalTo: playbutton.centerYAnchor),
-            
-            composeForOnlyImageButton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
-            composeForOnlyImageButton.widthAnchor.constraint(equalToConstant: Constants.iconSize),
-            composeForOnlyImageButton.topAnchor.constraint(equalTo: sliderParentView.topAnchor, constant: 160)
         ])
+    }
+    
+    private func updateMenu() {
+        navigationItem.leftBarButtonItem?.menu = createWaterMarkMenu()
+    }
+    
+    private func createWaterMarkMenu() -> UIMenu? {
+        let leftBottomCornerPosition = UIAction(title: "Left Corner bottom Position", image: UIImage(systemName: "pencil.circle"), identifier: UIAction.Identifier("leftBtm"), attributes: [], state: waterMarkPosition == .LeftBottomCorner ? .on : .off) { action in
+            self.waterMarkPosition = .LeftBottomCorner
+            self.updateMenu()
+        }
+        
+        let rightBottomCornerPosition = UIAction(title: "Right Corner bottom Position", image: UIImage(systemName: "pencil.circle"), attributes: [], state: waterMarkPosition == .RightBottomCorner ? .on : .off) { action in
+            self.waterMarkPosition = .RightBottomCorner
+            self.updateMenu()
+        }
+        
+        let leftTopCornerPosition = UIAction(title: "Left Corner Top Position", image: UIImage(systemName: "pencil.circle"), attributes: [], state: waterMarkPosition == .LeftTopCorner ? .on : .off) { action in
+            self.waterMarkPosition = .LeftTopCorner
+            self.updateMenu()
+        }
+        
+        let rightTopCornerPosition = UIAction(title: "Right Corner Top Position", image: UIImage(systemName: "pencil.circle"), attributes: [], state: waterMarkPosition == .RightTopCorner ? .on : .off) { action in
+            self.waterMarkPosition = .RightTopCorner
+            self.updateMenu()
+        }
+
+        let elements: [UIAction] = [leftBottomCornerPosition, rightBottomCornerPosition, leftTopCornerPosition, rightTopCornerPosition]
+        let menu = UIMenu(title: "Water Mark Position", children: elements)
+        return menu
+    }
+    
+    private func showImagePicker() {
+        videoPlayerLayer.pause()
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.mediaTypes = ["public.movie"]
+        pickerController.sourceType = .savedPhotosAlbum
+        DispatchQueue.main.async {
+            self.present(pickerController, animated: true)
+        }
+    }
+    
+    private func createVideoImageMenu() -> UIMenu? {
+        // Deferred menu
+        let selectVideo = UIAction(title: "Select a Video", image: UIImage(systemName: "video"), identifier: UIAction.Identifier("leftBtm"), attributes: [], state: .off) { action in
+            self.showImagePicker()
+        }
+        
+        let selectImage = UIAction(title: "Select an Image", image: UIImage(systemName: "photo"), attributes: [], state: .off) { action in
+            self.showImagePickerForWaterMark()
+        }
+        
+        let pickFontColor = UIAction(title: "Select Font Color", image: UIImage(systemName: "pencil.tip"), identifier: UIAction.Identifier("pick font color"), attributes: [], state: .off) { action in
+            self.showColorPicker()
+        }
+        
+        let addTextItem = UIAction(title: "Add Text", image: UIImage(systemName: "pencil"), attributes: [], state: .off) { action in
+            self.showTextFieldAlertToAddAsWaterMark()
+        }
+        
+        let addOnlyImageItem = UIAction(title: "Add only image Watermark", image: UIImage(systemName: "photo.circle.fill"), attributes: [], state: .off) { action in
+            self.handleComposeButtonButtonAction()
+        }
+        
+        let setExportUrlItem = UIAction(title: "Set Export Url", image: UIImage(systemName: "square.and.arrow.up.circle.fill"), attributes: [], state: .off) { action in
+            self.handleExportButtonAction()
+        }
+        
+        let deferredMenu = UIDeferredMenuElement { (menuElements) in
+            let menu = UIMenu(title: "Image/Font Color", options: .displayInline,  children: [addTextItem, selectImage, pickFontColor, addOnlyImageItem, setExportUrlItem])
+            menuElements([menu])
+        }
+        
+        let elements: [UIAction] = [selectVideo]
+        var menu = UIMenu(title: "Select Video", children: elements)
+        menu = menu.replacingChildren([selectVideo, deferredMenu])
+        return menu
+    }
+    
+    private func showImagePickerForWaterMark() {
+        videoPlayerLayer.pause()
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .savedPhotosAlbum
+        DispatchQueue.main.async {
+            self.present(pickerController, animated: true)
+        }
+    }
+    
+    private func showColorPicker() {
+        let pickerController = UIColorPickerViewController()
+        pickerController.delegate = self
+        DispatchQueue.main.async {
+            self.present(pickerController, animated: true)
+        }
+    }
+    
+    private func setupSliderProperties() {
+        slider.minimumValue = 0
+        slider.maximumValue = Float(duration?.seconds ?? 100)
+    }
+    
+    private func getDuration() async {
+        do {
+            self.duration = try await videoPlayerLayer?.getDuration()
+            setupSliderProperties()
+            NSLog("\(String(describing: duration))", "")
+            
+        } catch {
+            NSLog("\(error)", "")
+        }
     }
     
     private func setButtonProperties() {
         playbutton.setImage(UIImage(systemName: Constants.playButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .selected)
         playbutton.setImage(UIImage(systemName: Constants.pauseButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .normal)
-        
-        composebutton.setImage(UIImage(systemName: "square.and.pencil.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .selected)
-        composebutton.setImage(UIImage(systemName: "square.and.pencil.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .normal)
-        
-        exportButton.setImage(UIImage(systemName: "arrow.down.app", withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .normal)
-        
-        composeForOnlyImageButton.setImage(UIImage(systemName: "photo.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .normal)
     }
     
     @objc private func handlePlayButtonAction(_ sender: Any) {
         playbutton.isSelected ? play() : pause()
     }
     
-    @objc private func handleComposeButtonButtonAction(_ sender: Any) {
+    @objc private func handleComposeButtonButtonAction() {
         text = ""
         addWaterMark()
     }
     
-    @objc private func handleExportButtonAction(_ sender: Any) {
+    private func handleExportButtonAction() {
         // Create a document picker for directories.
         let documentPicker =
             UIDocumentPickerViewController(forOpeningContentTypes: [.folder])
@@ -333,31 +295,32 @@ class ViewController: UIViewController {
     }
     
     private func play() {
-        videoPlayer?.play()
+        videoPlayerLayer?.play()
         playbutton.isSelected = false
     }
     
     private func pause() {
-        videoPlayer?.pause()
+        videoPlayerLayer.pause()
         playbutton.isSelected = true
     }
     
     private func updateVideoPlayerUrl() {
         guard let videoSourceUrl = tmpVideoSrcUrl else { return }
-        videoPlayer.set(url: videoSourceUrl)
+        videoPlayerLayer.set(url: videoSourceUrl)
         play()
         Task {
             await getDuration()
         }
     }
     
-    @objc private func showAddWatermark(_ sender: UIButton) {
+    @objc private func showTextFieldAlertToAddAsWaterMark() {
         showAlertWithTextField()
     }
     
-    private func createImageAnnotation() -> OSATImageAnnotation {
-        let imageFrame = addImage(image: selectedImageSrc, videoSize: videoPlayer.getVideoSize(), fontSize: 15, isText: false)
-        let annotation = OSATImageAnnotation(image: selectedImageSrc!, frame: imageFrame, timeRange: nil, caption: "", attributedCaption: nil)
+    private func createImageAnnotation() -> OSATImageAnnotation? {
+        guard let img = selectedImageSrc else { return nil }
+        let imageFrame = addImage(image: img, videoSize: videoPlayerLayer.getVideoSize(), fontSize: 15, isText: false)
+        let annotation = OSATImageAnnotation(image: img, frame: imageFrame, timeRange: nil, caption: "", attributedCaption: nil)
         return annotation
     }
     
@@ -390,28 +353,54 @@ class ViewController: UIViewController {
         return rect
     }
     
+    private func showExportUrlNotPresent() {
+        let alertController = UIAlertController(title: "Please Select Export Url", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Add Export Url", style: .default) { (_) in
+            self.handleExportButtonAction()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     private func addWaterMark() {
         guard let inputURL = originalVideoUrl else { return }
         
+        var imgFrame: CGRect = .zero
+        var annotations = [OSATAnnotationProtocol]()
+        if selectedImageSrc != nil,  let imageAnnotation = createImageAnnotation() {
+            imgFrame = addImage(image: selectedImageSrc, videoSize: videoPlayerLayer.getVideoSize(), fontSize: 20, isText: true)
+            annotations.append(imageAnnotation)
+        }
+        
+        if !text.isEmpty {
+            let textAnnotation = AnnotationLayerUtils.createTextLayer(text: text, videoSize: videoPlayerLayer.getVideoSize(), fontSize: 20, imageSize: imgFrame, fontColor: fontColor, positionOfWaterMark: waterMarkPosition)
+            annotations.append(textAnnotation)
+        }
+       
+        guard !annotations.isEmpty else { return }
+        
+        guard let exportUrl = exportUrl else {
+            showExportUrlNotPresent()
+            return
+        }
+        
         videoPlayerLayer.isHidden = true
-        videoPlayer.pause()
+        videoPlayerLayer.pause()
+        
         spinner.isHidden = false
         spinner.startAnimating()
-        // img
-        let imageAnnotation = createImageAnnotation()
-        let imgFrame = addImage(image: selectedImageSrc!, videoSize: videoPlayer.getVideoSize(), fontSize: 20, isText: true)
-        // text
-        let textAnnotation = AnnotationLayerUtils.createTextLayer(text: text, videoSize: videoPlayer.getVideoSize(), fontSize: 20, imageSize: imgFrame, fontColor: .yellow, positionOfWaterMark: waterMarkPosition)
         
         let osatVideoComposition = OSATVideoComposition()
-        osatVideoComposition.createVideoComposition(sourceVideoURL: inputURL, exportURL: exportUrl!, annotations: [textAnnotation, imageAnnotation]) { [weak self ] session in
+        osatVideoComposition.createVideoComposition(sourceVideoURL: inputURL, exportURL: exportUrl, annotations: annotations) { [weak self ] session in
             guard let self = self else { return }
             
             switch session.status {
             case .completed:
-                guard NSData(contentsOf: session.outputURL!) != nil else { return }
-                self.tmpUrl = session.outputURL
-                self.videoPlayer.set(url: session.outputURL!)
+                guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
+                self.videoPlayerLayer.set(url: sessionOutputUrl)
                 self.play()
                 self.videoPlayerLayer.isHidden = false
                 self.spinner.isHidden = true
@@ -431,11 +420,6 @@ class ViewController: UIViewController {
         } errorHandler: { error in
             NSLog("\(error)", "")
         }
-
-        
-//        videoPlayer.addWatermark(text: text, image: selectedImageSrc, inputURL: inputURL, outputURL: nil, position: waterMarkPosition, fontSize: fontSize, fontColor: fontColor, handler: { [weak self] (exportSession) in
-//
-//        })
     }
     
     private func showAlertWithTextField() {
@@ -471,12 +455,6 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: MoviePlayerDelegate {
-    func moviePlayer(_ moviePlayer: OSAT_VideoCompositor.MoviePlayer, didReceivePlayBack time: CMTime) {
-        slider.value = Float(time.seconds)
-    }
-}
-
 // MARK: - UIImagePickerControllerDelegate
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -506,18 +484,6 @@ extension ViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         exportUrl = urls.first
         controller.dismiss(animated: true)
-//        let videoName = UUID().uuidString
-//
-//        let finalUrl = exportUrl!
-//          .appendingPathComponent(videoName)
-//          .appendingPathExtension("mov")
-//
-//        do {
-//            guard let atUrl = tmpUrl else { return }
-//            try FileManager.default.moveItem(at: atUrl, to: finalUrl)
-//        } catch {
-//            print("error: \(error)")
-//        }
     }
 }
 
@@ -537,4 +503,13 @@ extension ViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         self.fontColor = viewController.selectedColor
     }
+}
+
+// MARK: - AVPlayerCustomViewDelegate
+extension ViewController: AVPlayerCustomViewDelegate {
+    func avPlayerCustomView(_ avPlayerView: AVPlayerCustomView, didReceivePlayBack time: CMTime) {
+        slider.value = Float(time.seconds)
+    }
+    
+    func avPlayerCustomView(_ avPlayerView: AVPlayerCustomView, didSeek isSuccess: Bool) {}
 }
