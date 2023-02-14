@@ -15,6 +15,11 @@
 		607FACEC1AFB9204008FA782 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* ViewControllerTests.swift */; };
 		93A7E1A5FA0310303146425B /* Pods_OSAT_VideoCompositor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C18AA0D7D9B8CAE531EADA /* Pods_OSAT_VideoCompositor_Tests.framework */; };
 		E5A5504C9043983681BB2997 /* Pods_OSAT_VideoCompositor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0896B476C4F194D82A4048C /* Pods_OSAT_VideoCompositor_Example.framework */; };
+		F91232AD299C063A008A9A66 /* OSATPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91232AC299C063A008A9A66 /* OSATPlayerView.swift */; };
+		F91232AF299C068A008A9A66 /* UIKitAVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91232AE299C068A008A9A66 /* UIKitAVPlayerViewController.swift */; };
+		F91232B2299C0DDC008A9A66 /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91232B1299C0DDC008A9A66 /* FeatureView.swift */; };
+		F91232B4299C0E11008A9A66 /* ToolBarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91232B3299C0E11008A9A66 /* ToolBarUIView.swift */; };
+		F91232B6299C0E33008A9A66 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91232B5299C0E33008A9A66 /* PlayerView.swift */; };
 		F96A6FA9294DC796005B0365 /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F96A6FA8294DC796005B0365 /* videoplayback.mp4 */; };
 		F9C12525297057D500AB9ACB /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */; };
 		F9C125272970580700AB9ACB /* AnnotationLayerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */; };
@@ -50,6 +55,11 @@
 		98C18AA0D7D9B8CAE531EADA /* Pods_OSAT_VideoCompositor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSAT_VideoCompositor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB46A411940C8C9F5CA2983A /* Pods-OSAT-VideoCompositor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSAT-VideoCompositor_Example.debug.xcconfig"; path = "Target Support Files/Pods-OSAT-VideoCompositor_Example/Pods-OSAT-VideoCompositor_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B0896B476C4F194D82A4048C /* Pods_OSAT_VideoCompositor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSAT_VideoCompositor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91232AC299C063A008A9A66 /* OSATPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSATPlayerView.swift; sourceTree = "<group>"; };
+		F91232AE299C068A008A9A66 /* UIKitAVPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitAVPlayerViewController.swift; sourceTree = "<group>"; };
+		F91232B1299C0DDC008A9A66 /* FeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
+		F91232B3299C0E11008A9A66 /* ToolBarUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarUIView.swift; sourceTree = "<group>"; };
+		F91232B5299C0E33008A9A66 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		F96A6FA8294DC796005B0365 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
 		F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationLayerUtils.swift; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				F91232AE299C068A008A9A66 /* UIKitAVPlayerViewController.swift */,
 			);
 			name = "Example for OSAT-VideoCompositor";
 			path = "OSAT-VideoCompositor";
@@ -172,9 +183,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F91232B0299C0D72008A9A66 /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				F91232B1299C0DDC008A9A66 /* FeatureView.swift */,
+				F91232B3299C0E11008A9A66 /* ToolBarUIView.swift */,
+				F91232B5299C0E33008A9A66 /* PlayerView.swift */,
+				F91232AC299C063A008A9A66 /* OSATPlayerView.swift */,
+			);
+			name = SwiftUIViews;
+			sourceTree = "<group>";
+		};
 		F9C12523297057B500AB9ACB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F91232B0299C0D72008A9A66 /* SwiftUIViews */,
 				F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */,
 				F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */,
 			);
@@ -359,7 +382,12 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F9DCDD212976D4A8002F57A0 /* AVPlayerLayer.swift in Sources */,
 				F9C12525297057D500AB9ACB /* NSAttributedString+Extensions.swift in Sources */,
+				F91232B6299C0E33008A9A66 /* PlayerView.swift in Sources */,
+				F91232B2299C0DDC008A9A66 /* FeatureView.swift in Sources */,
+				F91232B4299C0E11008A9A66 /* ToolBarUIView.swift in Sources */,
 				F9C125272970580700AB9ACB /* AnnotationLayerUtils.swift in Sources */,
+				F91232AF299C068A008A9A66 /* UIKitAVPlayerViewController.swift in Sources */,
+				F91232AD299C063A008A9A66 /* OSATPlayerView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
