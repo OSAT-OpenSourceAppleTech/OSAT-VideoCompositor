@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     
     func openSwiftUIScreen() {
         let swiftUIViewController = UIHostingController(rootView: OSATPlayerView())
-        self.navigationController?.pushViewController(swiftUIViewController, animated: true)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.window?.rootViewController = swiftUIViewController
+        appDelegate?.window?.makeKeyAndVisible()
     }
 }

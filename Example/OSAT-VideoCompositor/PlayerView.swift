@@ -101,34 +101,6 @@ struct PlayerView: View {
  }
  */
 
-struct SheetView: View {
-    @Environment(\.dismiss) var dismiss
-    
-    var body: some View {
-        Button("Press to dismiss") {
-            dismiss()
-        }
-        .font(.title)
-        .padding()
-        .background(.black)
-    }
-}
-
-@available(iOS 16.0, *)
-struct PickerView: View {
-    @State var selectedItems: [PhotosPickerItem] = []
-    @Environment(\.presentationMode) var presentationMode
-    var body: some View {
-        if #available(iOS 16.0, *) {
-            PhotosPicker(selection: $selectedItems) {
-                Text("hey")
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-}
-
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 16.0, *) {

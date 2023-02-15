@@ -17,7 +17,11 @@ struct FeatureView: View {
             
             
             VStack (alignment: .leading, spacing: 12) {
-                ToolBarUIView()
+                if #available(iOS 16.0, *) {
+                    ToolBarUIView()
+                } else {
+                    // Fallback on earlier versions
+                }
                 HStack (spacing: 28) {
                     Button {
                         print("yo")

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ButtonWithAction: Hashable {
     var identifier: String {
@@ -23,6 +24,7 @@ struct ButtonWithAction: Hashable {
     let completionHandler: () -> ()
 }
 
+@available(iOS 16.0, *)
 struct ToolBarUIView: View {
     private var rows = [GridItem(.fixed(40))]
     private var colors: [Color] = [.yellow, .purple, .green]
@@ -40,30 +42,85 @@ struct ToolBarUIView: View {
             print("camer.filters")
         })
     ]
+    @State private var item: PhotosPickerItem?
+    var body: some View {
+        HStack {
+            PhotosPicker(selection: $item) {
+                Image(systemName: "plus")
+                    .foregroundColor(.white)
+                    .font(.system(size: 25))
+                    .frame(width: 40, height: 40)
+                    .background(.black)
+                    .cornerRadius(10)
+            }
+//            Button {
+//                //item.completionHandler()
+//            } label: {
+//                
+//            }
+            
+            Button {
+                //item.completionHandler()
+            } label: {
+                Image(systemName: "t.square.fill")
+                    .foregroundColor(.white)
+                    .font(.system(size: 25))
+                    .frame(width: 40, height: 40)
+                    .background(.black)
+                    .cornerRadius(10)
+            }
+            
+            Button {
+                //item.completionHandler()
+            } label: {
+                Image(systemName: "photo")
+                    .foregroundColor(.white)
+                    .font(.system(size: 25))
+                    .frame(width: 40, height: 40)
+                    .background(.black)
+                    .cornerRadius(10)
+            }
+            
+            Button {
+                //item.completionHandler()
+            } label: {
+                Image(systemName: "camera.filters")
+                    .foregroundColor(.white)
+                    .font(.system(size: 25))
+                    .frame(width: 40, height: 40)
+                    .background(.black)
+                    .cornerRadius(10)
+            }
+        }.padding()
+    }
+}
+
+@available(iOS 16.0, *)
+struct PickerView: View {
+    @State var selectedItems: PhotosPickerItem?
+    @State private var selectedPhotoData: Data?
+    @Environment(\.presentationMode) var presentationMode
+    
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: rows, alignment: .center, spacing: 16) {
-                ForEach(buttons, id: \.self) { item in
-                    Button {
-                        item.completionHandler()
-                    } label: {
-                        Image(systemName: item.imageString)
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
-                            .frame(width: 40, height: 40)
-                            .background(.black)
-                            .cornerRadius(10)
-                    }
-                    
+        PhotosPicker(selection: $selectedItems, matching: .videos) {
+            Text("hey")
+        }.onChange(of: selectedItems) { newValue in
+            Task {
+                if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                    selectedPhotoData = data
                 }
-            }.padding()
-        }.fixedSize(horizontal: false, vertical: true)
+            }
+        }
     }
 }
 
 struct ToolBarUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolBarUIView().frame(height: 150)
+        if #available(iOS 16.0, *) {
+            ToolBarUIView().frame(height: 150)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
