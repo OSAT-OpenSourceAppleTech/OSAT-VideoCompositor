@@ -159,7 +159,7 @@ public struct OSATVideoComposition {
             }
             // build transition instruction
             let instruction = AVMutableVideoCompositionInstruction()
-            instruction.timeRange = CMTimeRange(start: .zero, duration: asset.duration)
+            instruction.timeRange = CMTimeRange(start: nextClipStartTime, duration: asset.duration)
             let layerInstruction = compositionLayerInstruction(for: compositionVideoTrack, assetTrack: asset.tracks(withMediaType: .video)[0])
             instruction.layerInstructions = [layerInstruction]
             videoInstructions.append(instruction)
