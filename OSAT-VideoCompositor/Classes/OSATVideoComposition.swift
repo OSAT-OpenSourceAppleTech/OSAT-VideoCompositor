@@ -102,6 +102,47 @@ public struct OSATVideoComposition {
         }
     }
     
+    
+    public func createVideoCompositionWithFilters(_ videoTrack: OSATVideoSourceWithFilters, completionHandler: @escaping(_ videExportSession: AVAssetExportSession) -> Void, errorHandler: @escaping(_ error: OSATVideoCompositionError) -> Void) async {
+        
+        let asset = AVAsset(url: videoTrack.sourceUrl)
+        let videoComposition = AVMutableVideoComposition()
+        
+        do {
+            guard let assestTrack = asset.tracks.first else { return errorHandler(.videoAssetCorrupt) }
+            let naturalSize = try await assestTrack.load(.naturalSize)
+            
+            videoComposition.renderSize = CGSize(width: naturalSize.width, height: naturalSize.height)
+            videoComposition.frameDuration = CMTime(value: 1, timescale: videoTrack.fps)
+            
+            let instruction = AVMutableVideoCompositionInstruction()
+            instruction.timeRange = CMTimeRange(start: CMTime.zero, duration: asset.duration)
+            let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: asset.tracks.first!)
+            instruction.layerInstructions = [layerInstruction]
+            videoComposition.instructions = [instruction]
+            
+            
+            let filter = CIFilter(name: "CIColorControls")!
+            filter.setDefaults()
+            filter.setValue(1.5, forKey: "inputSaturation")
+            
+            
+            let compositionFilter = CIFilter(name: "CIFilter")!
+            compositionFilter.setDefaults()
+            compositionFilter.setValue(filter.outputImage, forKey: kCIInputImageKey)
+
+//            videoComposition.setfilter
+//            let compositionFilterInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: assestTrack)
+//            compositionFilterInstruction.setfilter
+//            instruction.layerInstructions = [compositionFilterInstruction]
+//            videoComposition.instructions = [instruction]
+            
+            
+        } catch {
+            errorHandler(.videoAssetCorrupt)
+        }
+    }
+    
     private func compositionLayerInstruction(for track: AVCompositionTrack, assetTrack: AVAssetTrack) -> AVMutableVideoCompositionLayerInstruction {
         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
         let transform = assetTrack.preferredTransform

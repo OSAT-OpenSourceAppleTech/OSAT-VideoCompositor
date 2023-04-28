@@ -109,3 +109,16 @@ public struct OSATBezierAnnotation: OSATAnnotationProtocol {
         return shapeLayer
     }
 }
+
+protocol OSATVideoSourceProtocol {
+    var sourceUrl: URL { get }
+    var exportUrl: URL { get }
+}
+
+/// This classes handles Video source with filter selection
+public struct OSATVideoSourceWithFilters: OSATVideoSourceProtocol {
+    var sourceUrl: URL
+    var exportUrl: URL
+    var selectedFilter: CIFilter
+    var fps: CMTimeScale
+}
