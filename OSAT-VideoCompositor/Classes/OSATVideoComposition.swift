@@ -97,7 +97,7 @@ public struct OSATVideoComposition {
     public func makeMultiVideoComposition(from sourceItems:[OSATVideoSource], animation:Bool = true, exportURL: URL, completionHandler: @escaping(_ videExportSession: AVAssetExportSession) -> Void, errorHandler: @escaping(_ error: OSATVideoCompositionError)->Void) {
         var insertTime = CMTime.zero
         // currently it's support only single canvas size
-        let defaultSize = CGSize(width: 720, height: 1280) // Default video size
+        let defaultSize = CGSize(width: 1280, height: 1280) // Default video size
         var arrayLayerInstructions:[AVMutableVideoCompositionLayerInstruction] = []
 
         // Init composition
@@ -222,15 +222,15 @@ public struct OSATVideoComposition {
         let transform = assetTrack.fixedPreferredTransform
         let assetOrientation = transform.orientation
         
-        var scaleToFitRatio = targetSize.width / assetTrack.naturalSize.width
+        let scaleToFitRatio = min(targetSize.width / assetTrack.naturalSize.width, targetSize.width / assetTrack.naturalSize.height)
         if assetOrientation.isPortrait {
             // Scale to fit target size
-            scaleToFitRatio = targetSize.width / assetTrack.naturalSize.height
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
             
             // Align center Y
-            let newY = targetSize.height/2 - (assetTrack.naturalSize.width * scaleToFitRatio)/2
-            let moveCenterFactor = CGAffineTransform(translationX: 0, y: newY)
+            let newX = targetSize.width/2 - ((assetTrack.naturalSize.height / 2) * scaleToFitRatio)
+            let newY = targetSize.height/2 - ((assetTrack.naturalSize.width / 2) * scaleToFitRatio)
+            let moveCenterFactor = CGAffineTransform(translationX: newX, y: newY)
             
             let finalTransform = transform.concatenating(scaleFactor).concatenating(moveCenterFactor)
 

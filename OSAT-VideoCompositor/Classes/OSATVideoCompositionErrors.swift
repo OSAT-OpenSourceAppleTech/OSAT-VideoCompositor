@@ -8,7 +8,6 @@
 import Foundation
 
 public enum OSATVideoCompositionError {
-    case mutableTrackFailed
     case videoAssetCorrupt
     case assetExportSessionFailed
 }
