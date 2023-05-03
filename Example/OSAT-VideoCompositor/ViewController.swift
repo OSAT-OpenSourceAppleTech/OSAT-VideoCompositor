@@ -12,8 +12,8 @@ import UIKit
 
 class ViewController: UIViewController {
     private struct Constants {
-        static let playButton = "play"
-        static let pauseButton = "pause"
+        static let playButton = "play.circle.fill"
+        static let pauseButton = "pause.circle.fill"
         static let iconSize: CGFloat = 40
     }
     
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         let url = Bundle.main.url(forResource: "videoplayback", withExtension: "mp4")!
         videoPlayerLayer = AVPlayerView(frame: .zero)
         originalVideoUrl = url
-        view.backgroundColor = .black
+        view.backgroundColor = .systemBackground
         
         videoPlayerLayer?.set(url: url)
         videoPlayerLayer?.delegate = self
@@ -92,14 +92,15 @@ class ViewController: UIViewController {
         videoPlayerLayer.translatesAutoresizingMaskIntoConstraints = false
         
         navigationItem.title = "OSAT Video Compositer"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem?.menu = createVideoImageMenu()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
         navigationItem.leftBarButtonItem?.menu = createWaterMarkMenu()
+        navigationController?.navigationBar.barStyle = .default
         
-        videoPlayerLayer.backgroundColor = .systemGray
-        videoPlayerLayer.play()
+        videoPlayerLayer.backgroundColor = .systemGroupedBackground
         addSubviews()
         setButtonProperties()
         setupConstraints()
@@ -125,10 +126,9 @@ class ViewController: UIViewController {
             playerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             playerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             playerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            playerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -300),
             
             videoPlayerLayer.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
-            videoPlayerLayer.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
+            videoPlayerLayer.centerYAnchor.constraint(equalTo: playerView.centerYAnchor),
             videoPlayerLayer.leadingAnchor.constraint(equalTo: playerView.leadingAnchor),
             videoPlayerLayer.trailingAnchor.constraint(equalTo: playerView.trailingAnchor),
             videoPlayerLayer.heightAnchor.constraint(equalTo: videoPlayerLayer.widthAnchor, multiplier: 1),
@@ -137,17 +137,20 @@ class ViewController: UIViewController {
             spinner.centerXAnchor.constraint(equalTo: playerView.centerXAnchor),
             
             sliderParentView.topAnchor.constraint(equalTo: playerView.bottomAnchor, constant: 10),
-            sliderParentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
-            sliderParentView.leadingAnchor.constraint(equalTo: videoPlayerLayer.leadingAnchor),
-            sliderParentView.trailingAnchor.constraint(equalTo: videoPlayerLayer.trailingAnchor),
+            sliderParentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            sliderParentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sliderParentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            sliderParentView.heightAnchor.constraint(equalToConstant: 100.0),
             
-            slider.leadingAnchor.constraint(equalTo: sliderParentView.leadingAnchor, constant: 10),
-            slider.trailingAnchor.constraint(equalTo: sliderParentView.trailingAnchor, constant: -10),
-            slider.heightAnchor.constraint(equalTo: sliderParentView.heightAnchor),
-            
-            playbutton.topAnchor.constraint(equalTo: sliderParentView.topAnchor, constant: 20),
+            playbutton.centerYAnchor.constraint(equalTo: sliderParentView.centerYAnchor),
+            playbutton.leadingAnchor.constraint(equalTo: sliderParentView.safeAreaLayoutGuide.leadingAnchor),
             playbutton.heightAnchor.constraint(equalToConstant: Constants.iconSize),
             playbutton.widthAnchor.constraint(equalToConstant: Constants.iconSize),
+            
+            slider.centerYAnchor.constraint(equalTo: sliderParentView.centerYAnchor),
+            slider.leadingAnchor.constraint(equalTo: playbutton.safeAreaLayoutGuide.trailingAnchor, constant: 10),
+            slider.trailingAnchor.constraint(equalTo: sliderParentView.safeAreaLayoutGuide.trailingAnchor, constant: -10)
+            
         ])
     }
     
@@ -198,6 +201,10 @@ class ViewController: UIViewController {
             self.showImagePicker()
         }
         
+        let multiVideo = UIAction(title: "Merge & Trim", image: nil, identifier: UIAction.Identifier("leftBtm1"), attributes: [], state: .off) { action in
+            self.mergeTrimVideoExample()
+        }
+        
         let selectImage = UIAction(title: "Select an Image", image: UIImage(systemName: "photo"), attributes: [], state: .off) { action in
             self.showImagePickerForWaterMark()
         }
@@ -218,14 +225,19 @@ class ViewController: UIViewController {
             self.handleExportButtonAction()
         }
         
-        let deferredMenu = UIDeferredMenuElement { (menuElements) in
+        let deferredMenu2 = UIDeferredMenuElement { (menuElements) in
             let menu = UIMenu(title: "Image/Font Color", options: .displayInline,  children: [addTextItem, selectImage, pickFontColor, addOnlyImageItem, setExportUrlItem])
+            menuElements([menu])
+        }
+        
+        let deferredMenu1 = UIDeferredMenuElement { (menuElements) in
+            let menu = UIMenu(title: "Feature Example", options: .displayInline,  children: [multiVideo])
             menuElements([menu])
         }
         
         let elements: [UIAction] = [selectVideo]
         var menu = UIMenu(title: "Select Video", children: elements)
-        menu = menu.replacingChildren([selectVideo, deferredMenu])
+        menu = menu.replacingChildren([selectVideo, deferredMenu1, deferredMenu2])
         return menu
     }
     
@@ -264,8 +276,8 @@ class ViewController: UIViewController {
     }
     
     private func setButtonProperties() {
-        playbutton.setImage(UIImage(systemName: Constants.playButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .selected)
         playbutton.setImage(UIImage(systemName: Constants.pauseButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .normal)
+        playbutton.setImage(UIImage(systemName: Constants.playButton, withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.iconSize)), for: .selected)
     }
     
     @objc private func handlePlayButtonAction(_ sender: Any) {
@@ -363,6 +375,54 @@ class ViewController: UIViewController {
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func mergeTrimVideoExample() {
+        guard let portraitURL = Bundle.main.url(forResource: "portrait", withExtension: "MOV"),
+              let landscapeURL = Bundle.main.url(forResource: "landscape", withExtension: "MOV")
+        else { return }
+        
+        guard let exportUrl = exportUrl else {
+            showExportUrlNotPresent()
+            return
+        }
+        
+        videoPlayerLayer.isHidden = true
+        videoPlayerLayer.pause()
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
+        let portraitAsset = OSATVideoSource(videoURL: portraitURL, startTime: 2, duration: 5)
+        let landscapeAsset = OSATVideoSource(videoURL: landscapeURL, startTime: 2, duration: 5)
+        
+        DispatchQueue.global().async {
+            let compositor = OSATVideoComposition()
+            compositor.makeMultiVideoComposition(from: [portraitAsset, landscapeAsset], exportURL: exportUrl) { [weak self ] session in
+                guard let self = self else { return }
+                switch session.status {
+                case .completed:
+                    guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
+                    DispatchQueue.main.async {
+                        self.videoPlayerLayer.set(url: sessionOutputUrl)
+                        self.play()
+                        self.videoPlayerLayer.isHidden = false
+                        self.spinner.isHidden = true
+                        self.spinner.stopAnimating()
+                        Task {
+                            await self.getDuration()
+                        }
+                    }
+                
+                case .failed:
+                    NSLog("error: \(String(describing: session.error))", "")
+                
+                default: break
+                }
+            } errorHandler: { error in
+                NSLog("\(error)", "")
+            }
+        }
     }
     
     private func addWaterMark() {
