@@ -92,7 +92,8 @@ class ViewController: UIViewController {
         videoPlayerLayer.translatesAutoresizingMaskIntoConstraints = false
         
         navigationItem.title = "OSAT Video Compositer"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem?.menu = createVideoImageMenu()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
@@ -198,6 +199,10 @@ class ViewController: UIViewController {
             self.showImagePicker()
         }
         
+        let multiVideo = UIAction(title: "Merge & Trim", image: nil, identifier: UIAction.Identifier("leftBtm1"), attributes: [], state: .off) { action in
+            self.mergeTrimVideoExample()
+        }
+        
         let selectImage = UIAction(title: "Select an Image", image: UIImage(systemName: "photo"), attributes: [], state: .off) { action in
             self.showImagePickerForWaterMark()
         }
@@ -218,14 +223,19 @@ class ViewController: UIViewController {
             self.handleExportButtonAction()
         }
         
-        let deferredMenu = UIDeferredMenuElement { (menuElements) in
+        let deferredMenu2 = UIDeferredMenuElement { (menuElements) in
             let menu = UIMenu(title: "Image/Font Color", options: .displayInline,  children: [addTextItem, selectImage, pickFontColor, addOnlyImageItem, setExportUrlItem])
+            menuElements([menu])
+        }
+        
+        let deferredMenu1 = UIDeferredMenuElement { (menuElements) in
+            let menu = UIMenu(title: "Editor Example", options: .displayInline,  children: [multiVideo])
             menuElements([menu])
         }
         
         let elements: [UIAction] = [selectVideo]
         var menu = UIMenu(title: "Select Video", children: elements)
-        menu = menu.replacingChildren([selectVideo, deferredMenu])
+        menu = menu.replacingChildren([selectVideo, deferredMenu1, deferredMenu2])
         return menu
     }
     
@@ -363,6 +373,57 @@ class ViewController: UIViewController {
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func mergeTrimVideoExample() {
+        guard let portraitURL = Bundle.main.url(forResource: "portrait", withExtension: "MOV"),
+              let landscapeURL = Bundle.main.url(forResource: "landscape", withExtension: "MOV")
+        else { return }
+        
+        guard let exportUrl = exportUrl else {
+            showExportUrlNotPresent()
+            return
+        }
+        
+        videoPlayerLayer.isHidden = true
+        videoPlayerLayer.pause()
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
+        let portraitAsset = OSATVideoSource(videoURL: portraitURL, startTime: 2, duration: 5)
+        let landscapeAsset = OSATVideoSource(videoURL: landscapeURL, startTime: 2, duration: 5)
+        
+        DispatchQueue.global().async {
+            let compositor = OSATVideoComposition()
+            compositor.makeMultiVideoComposition(from: [portraitAsset, landscapeAsset], exportURL: exportUrl) { [weak self ] session in
+                guard let self = self else { return }
+                switch session.status {
+                case .completed:
+                    guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
+                    DispatchQueue.main.async {
+                        self.videoPlayerLayer.set(url: sessionOutputUrl)
+                        self.play()
+                        self.videoPlayerLayer.isHidden = false
+                        self.spinner.isHidden = true
+                        self.spinner.stopAnimating()
+                        self.selectedImageSrc = nil
+                        self.fontSize = 20
+                        self.fontColor = .black
+                        Task {
+                            await self.getDuration()
+                        }
+                    }
+                
+                case .failed:
+                    NSLog("error: \(String(describing: session.error))", "")
+                
+                default: break
+                }
+            } errorHandler: { error in
+                NSLog("\(error)", "")
+            }
+        }
     }
     
     private func addWaterMark() {
