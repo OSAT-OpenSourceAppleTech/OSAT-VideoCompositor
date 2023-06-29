@@ -39,6 +39,7 @@ open class AVPlayerView: AVPlayerCustomView {
     private(set) var avPlayerItem: AVPlayerItem?
     private var timeInterval: CGFloat = 1.0
     private var observer: Any?
+    private (set) var oldFrame: CGRect?
     
     // MARK: - Public apis for testing
     public var isVideoPlaying = false
@@ -71,10 +72,21 @@ open class AVPlayerView: AVPlayerCustomView {
         super.init(coder: coder)
     }
     
+    open override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+    }
+    
     // MARK: - Public Apis
     open override func draw(_ rect: CGRect) {
         super.draw(rect)
-        playerLayer?.frame = bounds
+        if oldFrame == nil {
+            playerLayer?.frame = frame
+            oldFrame = frame
+        } else {
+            playerLayer?.frame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: oldFrame?.height ?? 100))
+        }
+        
     }
     
     open func play() {

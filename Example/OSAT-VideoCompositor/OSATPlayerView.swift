@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct OSATPlayerView: View {
+    @StateObject var playerInstance = PlayerViewModel()
     var body: some View {
         if #available(iOS 16.0, *) {
             PlayerView()
+                .environmentObject(playerInstance)
         } else {
-            Text("Upgrade your iOS")
+            Text("Upgrade iOS")
         }
     }
 }

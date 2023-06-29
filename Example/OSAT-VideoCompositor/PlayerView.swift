@@ -9,15 +9,47 @@ import SwiftUI
 import PhotosUI
 
 @available(iOS 16.0, *)
-struct PlayerView: View {
+struct PlayerView: View, KeyboardReadable {
+    @EnvironmentObject var playerInstance: PlayerViewModel
     @State private var value = 0.2
     @State private var sort: Int = 0
     @State var selectedItems: [PhotosPickerItem] = []
     @State var showView = false
+    @State var isKeyboardVisible = false
+    @State private var isDragging = false
+    @State private var location: CGPoint = CGPoint(x: 50, y: 50)
+    @State var lastScaleValue: CGFloat = 1.0
+    @State var newScaleValue: CGFloat = 1.0
+    @State private var locationTwo: CGPoint = CGPoint(x: 50, y: 50)
+    @State private var showingExporter = false
     
     init() {
         //Use this if NavigationBarTitle is with displayMode = .inline
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    var drag: some Gesture {
+        DragGesture(coordinateSpace: .local)
+            .onChanged { value in
+                self.location = value.location
+            }
+            .onEnded { value in
+                print("start loc: \(value.startLocation)")
+                self.location = value.location
+                playerInstance.textCGPoint = location
+            }
+    }
+    
+    var drag2: some Gesture {
+        DragGesture()
+            .onChanged { value in
+                self.locationTwo = value.location
+            }
+            .onEnded { value in
+                
+                self.locationTwo = value.location
+                playerInstance.imageCGPoint = locationTwo
+            }
     }
     
     var body: some View {
@@ -31,25 +63,37 @@ struct PlayerView: View {
                     Spacer()
                     
                     ZStack (alignment: .center) {
-                        Image("banner-1544x500")
-                            .renderingMode(.original)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 390, height: 200)
-                            .clipped()
-                        
-                        // Play button
-                        Button {
-                            showView.toggle()
-                        } label: {
-                            Image(systemName: "play.rectangle").font(.system(size: 60)).foregroundColor(.white)
-                        }.sheet(isPresented: $showView) {
+                        playerInstance
+                            .playerView
+                        ZStack {
+                            if let img = playerInstance.currentImage {
+                                Image(uiImage: img)
+                                    .resizable()
+                                    .position(locationTwo)
+                                    .gesture(drag2)
+                                    .frame(width: 50, height: 50)
+                                    .scaledToFit()
+                            }
+                        }
+                        ZStack {
+                            Text(playerInstance.currentText)
+                                .foregroundColor(.black)
+                                .opacity(playerInstance.currentText.isEmpty ? 0 : 1)
+                                .opacity(isKeyboardVisible ? 0 : 1)
+                                .position(location)
+                                .gesture(drag)
+                                .frame(width: 100, height: 100)
                             
                         }
-                    }
+                    }.frame(width: 390)
                     Spacer()
                     FeatureView()
+                        
+                        .environmentObject(playerInstance)
                         .frame(height: 176)
+                        .onReceive(keyboardPublisher) { newIsKeyboardVisible in
+                            isKeyboardVisible = newIsKeyboardVisible
+                        }.opacity(isKeyboardVisible ? 0 : 1)
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("Video Player")
@@ -57,9 +101,11 @@ struct PlayerView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            print("add video")
+                            showingExporter.toggle()
                         } label: {
-                            Text("Add Video")
+                            Text("Export Video")
+                        }.sheet(isPresented: $showingExporter) {
+                            DocumentPicker()
                         }
                     }
                 }.foregroundColor(.blue)
@@ -67,44 +113,23 @@ struct PlayerView: View {
         }
     }
 }
-/*
- ToolbarItem(placement: .navigationBarLeading) {
- Menu {
- Section {
- Button {
- 
- } label: {
- Label("Save Video", systemImage: "icloud.and.arrow.down")
- }
- Button {
- print("change resolution")
- } label: {
- Label("Resolution", systemImage: "icloud.and.arrow.down")
- }
- Button {
- print("change framerate")
- } label: {
- Label("Frame Rate", systemImage: "icloud.and.arrow.down")
- }
- }
- Section {
- Button {
- print("change format")
- } label: {
- Label("Format", systemImage: "icloud.and.arrow.down")
- }
- }
- } label: {
- Image(systemName: "square.and.arrow.up")
- }
- 
- }
- */
+
+struct AVPlayerViewWrapper: UIViewRepresentable {
+    let playerView: AVPlayerView
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<AVPlayerViewWrapper>) {
+    }
+    
+    func makeUIView(context: Context) -> UIView {
+        return playerView
+    }
+}
 
 struct PlayerView_Previews: PreviewProvider {
+    @StateObject static var playerInstance = PlayerViewModel()
     static var previews: some View {
         if #available(iOS 16.0, *) {
             PlayerView()
+                .environmentObject(playerInstance)
         } else {
             // Fallback on earlier versions
         }
