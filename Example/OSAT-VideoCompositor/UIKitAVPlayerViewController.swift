@@ -400,32 +400,32 @@ class UIKitAVPlayerViewController: UIViewController {
         spinner.startAnimating()
         
         let osatVideoComposition = OSATVideoComposition()
-        osatVideoComposition.createVideoComposition(sourceVideoURL: inputURL, exportURL: exportUrl, annotations: annotations) { [weak self ] session in
-            guard let self = self else { return }
-            
-            switch session.status {
-            case .completed:
-                guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
-                self.videoPlayerLayer.set(url: sessionOutputUrl)
-                self.play()
-                self.videoPlayerLayer.isHidden = false
-                self.spinner.isHidden = true
-                self.spinner.stopAnimating()
-                self.selectedImageSrc = nil
-                self.fontSize = 20
-                self.fontColor = .black
-                Task {
-                    await self.getDuration()
-                }
-            
-            case .failed:
-                NSLog("error: \(String(describing: session.error))", "")
-            
-            default: break
-            }
-        } errorHandler: { error in
-            NSLog("\(error)", "")
-        }
+//        osatVideoComposition.createVideoComposition(sourceVideoURL: inputURL, exportURL: exportUrl, annotations: annotations) { [weak self ] session in
+//            guard let self = self else { return }
+//
+//            switch session.status {
+//            case .completed:
+//                guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
+//                self.videoPlayerLayer.set(url: sessionOutputUrl)
+//                self.play()
+//                self.videoPlayerLayer.isHidden = false
+//                self.spinner.isHidden = true
+//                self.spinner.stopAnimating()
+//                self.selectedImageSrc = nil
+//                self.fontSize = 20
+//                self.fontColor = .black
+//                Task {
+//                    await self.getDuration()
+//                }
+//
+//            case .failed:
+//                NSLog("error: \(String(describing: session.error))", "")
+//
+//            default: break
+//            }
+//        } errorHandler: { error in
+//            NSLog("\(error)", "")
+//        }
     }
     
     private func showAlertWithTextField() {

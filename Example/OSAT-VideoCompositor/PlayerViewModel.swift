@@ -152,21 +152,21 @@ class PlayerViewModel: ObservableObject {
         }
         
         let osatVideoComposition = OSATVideoComposition()
-        osatVideoComposition.createVideoComposition(sourceVideoURL: inputVideoURL, exportURL: exportUrl, annotations: jobsList) { [weak self ] session in
-            guard let self = self else { return }
-            
-            switch session.status {
-            case .completed:
-                guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
-            
-            case .failed:
-                NSLog("error: \(String(describing: session.error))", "")
-            
-            default: break
-            }
-        } errorHandler: { error in
-            NSLog("\(error)", "")
-        }
+//        osatVideoComposition.createVideoComposition(sourceVideoURL: inputVideoURL, exportURL: exportUrl, annotations: jobsList) { [weak self ] session in
+//            guard let self = self else { return }
+//            
+//            switch session.status {
+//            case .completed:
+//                guard let sessionOutputUrl = session.outputURL, NSData(contentsOf: sessionOutputUrl) != nil else { return }
+//            
+//            case .failed:
+//                NSLog("error: \(String(describing: session.error))", "")
+//            
+//            default: break
+//            }
+//        } errorHandler: { error in
+//            NSLog("\(error)", "")
+//        }
     }
 }
 extension PlayerViewModel: AVPlayerCustomViewDelegate {

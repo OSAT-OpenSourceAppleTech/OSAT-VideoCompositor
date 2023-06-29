@@ -17,14 +17,16 @@ public enum OSATWaterMarkPosition {
 
 /// OSATAnnotationProtocol  is a base protocol for all Annotation object layers supported by OSAT-VideoCompositor
 public protocol OSATAnnotationProtocol {
+    var frame: CGRect { get }
+    var timeRange: CMTimeRange? { get }
     func getAnnotationLayer() -> CALayer
 }
 
 /// OSATImageAnnotation holds data for  the image annotation to be rendered on Video
 public struct OSATImageAnnotation: OSATAnnotationProtocol {
+    public let frame: CGRect
+    public let timeRange: CMTimeRange?
     let image: UIImage
-    let frame: CGRect
-    let timeRange: CMTimeRange?
     let caption: String?
     let attributedCaption: NSAttributedString?
     
@@ -48,8 +50,8 @@ public struct OSATImageAnnotation: OSATAnnotationProtocol {
 /// OSATTextAnnotation holds data for the text annotation to be rendered on Video
 public struct OSATTextAnnotation: OSATAnnotationProtocol {
     let text: String
-    let frame: CGRect
-    let timeRange: CMTimeRange?
+    public let frame: CGRect
+    public let timeRange: CMTimeRange?
     let attributedText: NSAttributedString?
     let textColor: UIColor?
     let backgroundColor: UIColor?
@@ -83,20 +85,22 @@ public struct OSATTextAnnotation: OSATAnnotationProtocol {
 
 /// OSATBezierAnnotation holds data for the Bezier sPath annotation to be rendered on Video
 public struct OSATBezierAnnotation: OSATAnnotationProtocol {
+    public var timeRange: CMTimeRange?
+    public let frame: CGRect
     let bezierPath: UIBezierPath
     let position: CGPoint
     let lineWidth: CGFloat
-    let timeRange: CMTimeRange
     let strokeColor: UIColor?
     let fillColor: UIColor?
     
-    public init(bezierPath: UIBezierPath, position: CGPoint, lineWidth: CGFloat, timeRange: CMTimeRange, strokeColor: UIColor?, fillColor: UIColor?) {
+    public init(bezierPath: UIBezierPath, position: CGPoint, lineWidth: CGFloat, timeRange: CMTimeRange, strokeColor: UIColor?, fillColor: UIColor?, frame: CGRect) {
         self.bezierPath = bezierPath
         self.position = position
         self.lineWidth = lineWidth
         self.timeRange = timeRange
         self.strokeColor = strokeColor
         self.fillColor = fillColor
+        self.frame = frame
     }
     
     public func getAnnotationLayer() -> CALayer {

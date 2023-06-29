@@ -26,7 +26,6 @@
 		F96A6FA9294DC796005B0365 /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F96A6FA8294DC796005B0365 /* videoplayback.mp4 */; };
 		F9C12525297057D500AB9ACB /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */; };
 		F9C125272970580700AB9ACB /* AnnotationLayerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */; };
-		F9C2BBE129A349CE00D79FC7 /* Time Keeper.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C2BBE029A349CE00D79FC7 /* Time Keeper.png */; };
 		F9DBA1A929A21BC2006469C6 /* KeyBoardPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DBA1A829A21BC2006469C6 /* KeyBoardPublisher.swift */; };
 		F9DCDD212976D4A8002F57A0 /* AVPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCDD202976D4A8002F57A0 /* AVPlayerLayer.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +70,6 @@
 		F96A6FA8294DC796005B0365 /* videoplayback.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoplayback.mp4; sourceTree = "<group>"; };
 		F9C12524297057D500AB9ACB /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		F9C125262970580700AB9ACB /* AnnotationLayerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationLayerUtils.swift; sourceTree = "<group>"; };
-		F9C2BBE029A349CE00D79FC7 /* Time Keeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Time Keeper.png"; sourceTree = "<group>"; };
 		F9DBA1A829A21BC2006469C6 /* KeyBoardPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardPublisher.swift; sourceTree = "<group>"; };
 		F9DCDD202976D4A8002F57A0 /* AVPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerLayer.swift; sourceTree = "<group>"; };
 		F9E4906D291544C400CB2598 /* OSAT-VideoCompositor_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OSAT-VideoCompositor_Example.entitlements"; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 			children = (
 				F92BF2C129A8A2DE00D14CCE /* Webex.png */,
 				F92BF2BF29A8A1A500D14CCE /* Test.mp4 */,
-				F9C2BBE029A349CE00D79FC7 /* Time Keeper.png */,
 				F91232B1299C0DDC008A9A66 /* FeatureView.swift */,
 				F91232B3299C0E11008A9A66 /* ToolBarUIView.swift */,
 				F91232B5299C0E33008A9A66 /* PlayerView.swift */,
@@ -319,7 +316,6 @@
 				F92BF2C029A8A27A00D14CCE /* Test.mp4 in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				F9C2BBE129A349CE00D79FC7 /* Time Keeper.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				F96A6FA9294DC796005B0365 /* videoplayback.mp4 in Resources */,
 				F92BF2C229A8A2DE00D14CCE /* Webex.png in Resources */,
